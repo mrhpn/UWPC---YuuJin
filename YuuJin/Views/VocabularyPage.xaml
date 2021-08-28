@@ -1,0 +1,193 @@
+﻿<Page
+    x:Class="YuuJin.Views.VocabularyPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Style="{StaticResource PageStyle}"
+    mc:Ignorable="d">
+    <Grid x:Name="ContentArea" Margin="{StaticResource MediumLeftRightMargin}">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+
+            <!--  Top menu group  -->
+            <Grid
+                Grid.Row="0"
+                Margin="0,0,0,10"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Top">
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+
+                <!--  Filter group  -->
+                <Grid
+                    x:Name="Grid_Filters"
+                    Grid.Column="0"
+                    Margin="20,0,10,0"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Center">
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+
+                    <ComboBox
+                        Grid.Column="0"
+                        Width="90"
+                        Margin="0,0,7,0"
+                        BorderThickness="0.5"
+                        CornerRadius="6"
+                        Header="Level"
+                        PlaceholderText="N3"
+                        SelectionChanged="SelectionChanged_Level">
+                        <ComboBoxItem Content="N1" Tag="1" />
+                        <ComboBoxItem Content="N2" Tag="2" />
+                        <ComboBoxItem Content="N3" Tag="3" />
+                        <ComboBoxItem Content="N4" Tag="4" />
+                        <ComboBoxItem Content="N5" Tag="5" />
+                    </ComboBox>
+
+                    <ComboBox
+                        x:Name="ComboBox_Unit"
+                        Grid.Column="1"
+                        Width="90"
+                        Margin="0,0,7,0"
+                        BorderThickness="0.5"
+                        CornerRadius="6"
+                        Header="Unit"
+                        IsEnabled="False"
+                        PlaceholderText="Choose Level" />
+                </Grid>
+                <!--  End filter group  -->
+
+                <AutoSuggestBox
+                    Name="SearchBox"
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    Width="170"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Bottom"
+                    BorderThickness="0.5"
+                    CornerRadius="6"
+                    PlaceholderText="Search"
+                    QueryIcon="Find"
+                    TextChanged="AutoSuggestBox_TextChanged"
+                    ToolTipService.ToolTip="Searchable Fields: Vocabulary and Meaning" />
+
+                <CommandBar
+                    x:Name="CommandBar"
+                    Grid.Row="0"
+                    Grid.Column="2"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Bottom"
+                    Background="Transparent"
+                    DefaultLabelPosition="Right">
+                    <AppBarButton Icon="OutlineStar" Label="Mark as Favorite" />
+                    <AppBarButton Icon="Edit" Label="Edit" />
+                    <AppBarButton Icon="Delete" Label="Delete" />
+
+                    <CommandBar.SecondaryCommands>
+                        <AppBarButton Icon="Print" Label="Print" />
+                    </CommandBar.SecondaryCommands>
+
+                </CommandBar>
+            </Grid>
+            <!--  End filter group  -->
+
+            <Rectangle
+                Width="Auto"
+                Height="0.1"
+                Margin="20,0,20,0"
+                Fill="#E4E4E4" />
+
+            <!--  Data Grid  -->
+            <controls:DataGrid
+                x:Name="DataGrid_Vocabulary"
+                Grid.Row="1"
+                Margin="20,20,0,0"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Stretch"
+                AutoGenerateColumns="True"
+                CanUserReorderColumns="True"
+                CanUserResizeColumns="True"
+                CanUserSortColumns="True"
+                ColumnHeaderHeight="32"
+                FrozenColumnCount="4"
+                IsReadOnly="True"
+                MaxColumnWidth="400" />
+            <!--  End data grid  -->
+        </Grid>
+
+
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <!--  Triggered when the window width >=1366 effective pixels.  -->
+                <VisualState x:Name="VisualState_Extra_Large">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="1366" />
+                    </VisualState.StateTriggers>
+
+                    <VisualState.Setters>
+                        <Setter Target="SearchBox.Width" Value="250" />
+                    </VisualState.Setters>
+                </VisualState>
+
+                <!--  Triggered when the window width >=1010 effective pixels.  -->
+                <VisualState x:Name="VisualState_Large">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="1010" />
+                    </VisualState.StateTriggers>
+
+                    <VisualState.Setters>
+                        <Setter Target="SearchBox.Width" Value="130" />
+                    </VisualState.Setters>
+                </VisualState>
+
+                <!--  Triggered when the window width >=800 effective pixels.  -->
+                <VisualState x:Name="VisualState_Medium">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="800" />
+                    </VisualState.StateTriggers>
+
+                    <VisualState.Setters>
+                        <Setter Target="SearchBox.Width" Value="180" />
+                    </VisualState.Setters>
+                </VisualState>
+
+                <!--  Triggered when the window width >=490 effective pixels.  -->
+                <VisualState x:Name="VisualState_Small">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="490" />
+                    </VisualState.StateTriggers>
+
+                    <VisualState.Setters>
+                        <!--  Repositioning search box  -->
+                        <Setter Target="SearchBox.(Grid.Row)" Value="1" />
+                        <Setter Target="SearchBox.(Grid.Column)" Value="0" />
+
+                        <!--  Resizing search box width  -->
+                        <Setter Target="SearchBox.Width" Value="335" />
+                        <Setter Target="SearchBox.Margin" Value="19, 8, 0, 0" />
+
+                        <!--  Reassigning frezz count column in data grid  -->
+                        <Setter Target="DataGrid_Vocabulary.FrozenColumnCount" Value="2" />
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+    </Grid>
+</Page>

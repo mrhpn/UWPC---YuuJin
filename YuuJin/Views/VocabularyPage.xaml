@@ -46,6 +46,7 @@
                     </Grid.ColumnDefinitions>
 
                     <ComboBox
+                        x:Name="ComboBox_Level"
                         Grid.Column="0"
                         Width="90"
                         Margin="0,0,7,0"
@@ -69,8 +70,8 @@
                         BorderThickness="0.5"
                         CornerRadius="6"
                         Header="Unit"
-                        IsEnabled="False"
-                        PlaceholderText="Choose Level" />
+                        PlaceholderText="Unit"
+                        SelectionChanged="SelectionChanged_Unit" />
                 </Grid>
                 <!--  End filter group  -->
 
@@ -114,22 +115,35 @@
                 Margin="20,0,20,0"
                 Fill="#E4E4E4" />
 
-            <!--  Data Grid  -->
-            <controls:DataGrid
-                x:Name="DataGrid_Vocabulary"
+
+            <StackPanel
                 Grid.Row="1"
-                Margin="20,20,0,0"
-                HorizontalAlignment="Stretch"
-                VerticalAlignment="Stretch"
-                AutoGenerateColumns="True"
-                CanUserReorderColumns="True"
-                CanUserResizeColumns="True"
-                CanUserSortColumns="True"
-                ColumnHeaderHeight="32"
-                FrozenColumnCount="4"
-                IsReadOnly="True"
-                MaxColumnWidth="400" />
-            <!--  End data grid  -->
+                Grid.Column="0"
+                Margin="25,20,0,30">
+
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Total Rows: " />
+                    <TextBlock x:Name="TextBlock_TotalRows" Margin="8,0,0,0" />
+                </StackPanel>
+
+                <!--  Data Grid  -->
+                <controls:DataGrid
+                    x:Name="DataGrid_Vocabulary"
+                    Grid.Row="1"
+                    Margin="0,20,0,0"
+                    AutoGenerateColumns="True"
+                    AutoGeneratingColumn="DataGridVocabulary_Event"
+                    CanUserReorderColumns="True"
+                    CanUserResizeColumns="True"
+                    CanUserSortColumns="True"
+                    FrozenColumnCount="2"
+                    GridLinesVisibility="Horizontal"
+                    HeadersVisibility="Column"
+                    IsReadOnly="True"
+                    MaxColumnWidth="400"
+                    MinColumnWidth="70" />
+                <!--  End data grid  -->
+            </StackPanel>
         </Grid>
 
 

@@ -63,7 +63,7 @@
                         x:Uid="Shell_VocabularyPractice"
                         helpers:NavHelper.NavigateTo="views:VocabularyPracticePage"
                         Content="Practice"
-                        Icon="Target" />
+                        Icon="Emoji" />
                 </winui:NavigationViewItem.MenuItems>
             </winui:NavigationViewItem>
             <winui:NavigationViewItem

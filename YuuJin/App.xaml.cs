@@ -4,6 +4,7 @@ using Windows.ApplicationModel.Activation;
 using Windows.UI;
 using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
+using DataAccessLibrary;
 
 using YuuJin.Services;
 

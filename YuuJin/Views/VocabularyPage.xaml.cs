@@ -132,5 +132,15 @@ namespace YuuJin.Views
                 loadVocabularies($"{level}.1");
             }
         }
+
+        private void Button_MarkFavorite(object sender, RoutedEventArgs e)
+        {
+            Vocabulary selectedRow = (Vocabulary)DataGrid_Vocabulary.SelectedItem;
+
+            if (selectedRow == null)
+            {
+                Noti_Info.Show(2000);
+            }
+        }
     }
 }

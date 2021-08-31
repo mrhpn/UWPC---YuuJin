@@ -98,7 +98,10 @@
                     VerticalAlignment="Bottom"
                     Background="Transparent"
                     DefaultLabelPosition="Right">
-                    <AppBarButton Icon="OutlineStar" Label="Mark as Favorite" />
+                    <AppBarButton
+                        Click="Button_MarkFavorite"
+                        Icon="OutlineStar"
+                        Label="Mark as Favorite" />
                     <AppBarButton Icon="Edit" Label="Edit" />
                     <AppBarButton Icon="Delete" Label="Delete" />
 
@@ -155,7 +158,7 @@
                     FrozenColumnCount="2"
                     GridLinesVisibility="Horizontal"
                     HeadersVisibility="Column"
-                    IsReadOnly="False"
+                    IsReadOnly="True"
                     MaxColumnWidth="400"
                     MinColumnWidth="70">
                     <controls:DataGrid.Columns>
@@ -193,6 +196,48 @@
             </StackPanel>
         </Grid>
 
+        <!--  Info Noti  -->
+        <controls:InAppNotification
+            x:Name="Noti_Info"
+            Grid.Row="2"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Bottom"
+            AnimationDuration="00:00:00.1000000"
+            HorizontalOffset="0"
+            ShowDismissButton="True"
+            StackMode="Replace"
+            VerticalOffset="100">
+            <controls:InAppNotification.ContentTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <Grid
+                            Grid.Column="0"
+                            Width="40"
+                            Height="40"
+                            Padding="10"
+                            Background="Gold"
+                            CornerRadius="100">
+                            <SymbolIcon
+                                VerticalAlignment="Center"
+                                Foreground="White"
+                                Symbol="Important" />
+                        </Grid>
+                        <StackPanel Grid.Column="1" Margin="10,0,0,0">
+                            <TextBlock FontFamily="Pyidaungsu" Text="Information" />
+                            <TextBlock
+                                Opacity="0.7"
+                                Style="{ThemeResource BodyTextBlockStyle}"
+                                Text="Select the table row first." />
+                        </StackPanel>
+                    </Grid>
+                </DataTemplate>
+            </controls:InAppNotification.ContentTemplate>
+        </controls:InAppNotification>
+        <!--  End Info Noti  -->
 
         <VisualStateManager.VisualStateGroups>
             <VisualStateGroup>

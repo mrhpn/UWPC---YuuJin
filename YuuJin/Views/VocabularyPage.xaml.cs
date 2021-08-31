@@ -131,6 +131,10 @@ namespace YuuJin.Views
                 ComboBox_Unit.SelectedIndex = 0;
                 loadVocabularies($"{level}.1");
             }
+
+            // set 'Mark as Favorite' button to default
+            AppBarButton_MarkFavorite.Label = "Mark as Favorite";
+            AppBarButton_MarkFavorite.Icon = new SymbolIcon(Symbol.OutlineStar);
         }
 
         private void Button_MarkFavorite(object sender, RoutedEventArgs e)
@@ -146,7 +150,21 @@ namespace YuuJin.Views
                 bool isFavorite = selectedRow.isFavorite;
                 int vocabularyId = selectedRow.vocabularyId;
                 var vocabularyModel = new VocabularyModel();
-                // vocabularyModel.ToggleFavorite(!isFavorite, vocabularyId);
+                vocabularyModel.ToggleFavorite(!isFavorite, vocabularyId);
+
+                // TODO: now is assuming the update is always works
+                AppBarButton_MarkFavorite.Label = "Mark as Favorite";
+                AppBarButton_MarkFavorite.Icon = new SymbolIcon(Symbol.OutlineStar);
+
+                string level = ((ComboBoxItem)ComboBox_Level.SelectedItem).Tag.ToString();
+
+                if (((ComboBoxItem)ComboBox_Unit.SelectedItem) != null)
+                {
+                    string unit = ((ComboBoxItem)ComboBox_Unit.SelectedItem).Content.ToString();
+                    loadVocabularies($"{level}.{unit}");
+                }
+
+                // TODO: select the updated row programmatically using vocabularyId
             }
         }
 

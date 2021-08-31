@@ -141,6 +141,13 @@ namespace YuuJin.Views
             {
                 Noti_Info.Show(2000);
             }
+            else
+            {
+                bool isFavorite = selectedRow.isFavorite;
+                int vocabularyId = selectedRow.vocabularyId;
+                var vocabularyModel = new VocabularyModel();
+                // vocabularyModel.ToggleFavorite(!isFavorite, vocabularyId);
+            }
         }
 
         private void SelectionChanged_DataGrid(object sender, SelectionChangedEventArgs e)

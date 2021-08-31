@@ -13,31 +13,27 @@ namespace DataAccessLibrary
 {
     public static class DataAccess
     {
-        public static SqliteConnection InitializeDatabase()
+        public async static void InitializeDatabase()
         {
-            string dbpath = Path.Combine(Windows.ApplicationModel.Package.Current.InstalledLocation.Path, "Database", "sqliteYuuJin.db");
-            return new SqliteConnection($"Filename={dbpath}");
-        }
-
-        public static void AddData(string inputText)
-        {
-            string dbpath = Path.Combine(Windows.ApplicationModel.Package.Current.InstalledLocation.Path, "Database", "sqliteYuuJin.db");
+            await ApplicationData.Current.LocalFolder.CreateFileAsync("yuuJin.db", CreationCollisionOption.OpenIfExists);
+            string dbpath = Path.Combine(ApplicationData.Current.LocalFolder.Path, "yuuJin.db");
             using (SqliteConnection db = new SqliteConnection($"Filename={dbpath}"))
             {
                 db.Open();
 
-                SqliteCommand insertCommand = new SqliteCommand();
-                insertCommand.Connection = db;
+                String cmd = "CREATE TABLE IF NOT EXISTS vocabularies (" +
+                    "vocabulary_id INTEGER PRIMARY KEY," +
+                    "name TEXT NOT NULL," +
+                    "kanji TEXT," +
+                    "meaning TEXT NOT NULL," +
+                    "meaning_en TEXT DEFAULT '-'," +
+                    "is_favorite INTEGER NOT NULL DEFAULT 0," +
+                    "unit_id NUMERIC NOT NULL DEFAULT 0)";
 
-                // Use parameterized query to prevent SQL injection attacks
-                insertCommand.CommandText = "INSERT INTO MyTable VALUES (NULL, @Entry);";
-                insertCommand.Parameters.AddWithValue("@Entry", inputText);
+                SqliteCommand createTable = new SqliteCommand(cmd, db);
 
-                insertCommand.ExecuteReader();
-
-                db.Close();
+                createTable.ExecuteReader();
             }
-
         }
     }
 }

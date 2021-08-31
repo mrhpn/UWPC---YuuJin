@@ -6,27 +6,23 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.Storage;
 
 namespace YuuJin.Database
 {
     class VocabularyModel
     {
-        private SqliteConnection connection;
-
-        public VocabularyModel()
-        {
-            this.connection = DataAccessLibrary.DataAccess.InitializeDatabase();
-        }
 
         public List<Vocabulary> GetVocabularies(string unit)
         {
             var entries = new List<Vocabulary>();
 
-            using (this.connection)
+            string dbpath = Path.Combine(ApplicationData.Current.LocalFolder.Path, "yuuJin.db");
+            using (SqliteConnection db = new SqliteConnection($"Filename={dbpath}"))
             {
-                this.connection.Open();
+                db.Open();
 
-                SqliteCommand selectCommand = new SqliteCommand($"SELECT * FROM vocabularies WHERE unit_id = {unit}", this.connection);
+                SqliteCommand selectCommand = new SqliteCommand($"SELECT * FROM vocabularies WHERE unit_id = {unit}", db);
 
                 SqliteDataReader query = selectCommand.ExecuteReader();
 
@@ -37,10 +33,24 @@ namespace YuuJin.Database
                     displayNo++;
                 }
 
-                this.connection.Close();
+                db.Close();
             }
 
             return entries;
         }
+
+        /*public void ToggleFavorite(bool isFavorite, int vocabularyId)
+        {
+            using (this.connection)
+            {
+                this.connection.Open();
+
+                SqliteCommand selectCommand = new SqliteCommand($"UPDATE vocabularies SET is_favorite = {isFavorite} WHERE vocabulary_id = {vocabularyId}", this.connection);
+
+                selectCommand.ExecuteNonQuery();
+
+                this.connection.Close();
+            }
+        }*/
     }
 }

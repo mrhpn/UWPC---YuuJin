@@ -1,10 +1,10 @@
-﻿using System;
+﻿using DataAccessLibrary;
+using System;
 
 using Windows.ApplicationModel.Activation;
 using Windows.UI;
 using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
-using DataAccessLibrary;
 
 using YuuJin.Services;
 
@@ -26,6 +26,8 @@ namespace YuuJin
 
             // Deferred execution until used. Check https://docs.microsoft.com/dotnet/api/system.lazy-1 for further info on Lazy<T> class.
             _activationService = new Lazy<ActivationService>(CreateActivationService);
+
+            DataAccess.InitializeDatabase();
         }
 
         protected override async void OnLaunched(LaunchActivatedEventArgs args)

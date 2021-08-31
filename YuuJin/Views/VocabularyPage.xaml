@@ -131,17 +131,47 @@
                     x:Name="DataGrid_Vocabulary"
                     Grid.Row="1"
                     Margin="0,20,0,0"
-                    AutoGenerateColumns="True"
-                    AutoGeneratingColumn="DataGridVocabulary_Event"
+                    AutoGenerateColumns="False"
                     CanUserReorderColumns="True"
                     CanUserResizeColumns="True"
                     CanUserSortColumns="True"
                     FrozenColumnCount="2"
                     GridLinesVisibility="Horizontal"
                     HeadersVisibility="Column"
-                    IsReadOnly="True"
+                    IsReadOnly="False"
                     MaxColumnWidth="400"
-                    MinColumnWidth="70" />
+                    MinColumnWidth="70">
+                    <controls:DataGrid.Columns>
+                        <controls:DataGridTextColumn
+                            Width="Auto"
+                            Binding="{Binding displayNo}"
+                            Header="#" />
+                        <controls:DataGridTextColumn
+                            Width="Auto"
+                            Binding="{Binding name}"
+                            Header="Name" />
+                        <controls:DataGridTextColumn
+                            Width="Auto"
+                            Binding="{Binding kanji}"
+                            Header="Kanji" />
+                        <controls:DataGridTextColumn
+                            Width="Auto"
+                            Binding="{Binding meaning}"
+                            Header="Meaning" />
+                        <controls:DataGridTextColumn
+                            Width="SizeToHeader"
+                            Binding="{Binding meaningEn}"
+                            Header="Meaning (En)" />
+                        <controls:DataGridCheckBoxColumn
+                            Width="SizeToHeader"
+                            Binding="{Binding isFavorite}"
+                            Header="Favorite" />
+                        <controls:DataGridTextColumn
+                            Width="SizeToHeader"
+                            Binding="{Binding vocabularyId}"
+                            Visibility="Collapsed" />
+                    </controls:DataGrid.Columns>
+                </controls:DataGrid>
                 <!--  End data grid  -->
             </StackPanel>
         </Grid>

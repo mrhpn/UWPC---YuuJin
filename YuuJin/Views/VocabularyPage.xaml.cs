@@ -131,37 +131,5 @@ namespace YuuJin.Views
                 loadVocabularies($"{level}.1");
             }
         }
-
-        private void DataGridVocabulary_Event(object sender, Microsoft.Toolkit.Uwp.UI.Controls.DataGridAutoGeneratingColumnEventArgs e)
-        {
-            if (e.Column.Header.ToString() == "vocabularyId")
-            {
-                e.Column.Header = "No";
-            }
-            else if (e.Column.Header.ToString() == "name")
-            {
-                e.Column.Header = "Name";
-            }
-            else if (e.Column.Header.ToString() == "kanji")
-            {
-                e.Column.Header = "Kanji";
-            }
-            else if (e.Column.Header.ToString() == "meaning")
-            {
-                e.Column.Header = "Meaning";
-            }
-            else if (e.Column.Header.ToString() == "meaningEn")
-            {
-                e.Column.Header = "Meaning (En)";
-            }
-            else if(e.Column.Header.ToString() == "isFavorite")
-            {
-                e.Column.Header = "Favorite";
-            }
-            else if (e.Column.Header.ToString() == "unitId")
-            {
-                e.Cancel = true;
-            }
-        }
     }
 }

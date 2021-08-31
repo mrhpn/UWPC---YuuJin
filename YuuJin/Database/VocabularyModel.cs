@@ -30,11 +30,11 @@ namespace YuuJin.Database
 
                 SqliteDataReader query = selectCommand.ExecuteReader();
 
-                int id = 1;
+                int displayNo = 1;
                 while (query.Read())
                 {
-                    entries.Add(new Vocabulary(id, query.GetString(1), query.GetString(2), query.GetString(3), query.GetString(4), query.GetBoolean(5)));
-                    id++;
+                    entries.Add(new Vocabulary(displayNo, query.GetInt32(0), query.GetString(1), query.GetString(2), query.GetString(3), query.GetString(4), query.GetBoolean(5)));
+                    displayNo++;
                 }
 
                 this.connection.Close();

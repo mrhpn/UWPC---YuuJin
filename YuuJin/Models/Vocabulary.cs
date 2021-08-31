@@ -8,6 +8,7 @@ namespace DataAccessLibrary.Models
 {
     public class Vocabulary
     {
+        public int displayNo { get; set; }
         public int vocabularyId { get; set; }
         public string name { get; set; }
         public string kanji { get; set; }
@@ -16,8 +17,9 @@ namespace DataAccessLibrary.Models
         public bool isFavorite { get; set; }
         public int unitId { get; set; }
 
-        public Vocabulary(int vocabularyId, string name, string kanji, string meaning, string meaningEn, bool isFavorite, int unit)
+        public Vocabulary(int displayNo, int vocabularyId, string name, string kanji, string meaning, string meaningEn, bool isFavorite, int unit)
         {
+            this.displayNo = displayNo;
             this.vocabularyId = vocabularyId;
             this.name = name;
             this.kanji = kanji;
@@ -27,8 +29,9 @@ namespace DataAccessLibrary.Models
             this.unitId = unitId;
         }
 
-        public Vocabulary(int vocabularyId, string name, string kanji, string meaning, string meaningEn, bool isFavorite)
+        public Vocabulary(int displayNo, int vocabularyId, string name, string kanji, string meaning, string meaningEn, bool isFavorite)
         {
+            this.displayNo = displayNo;
             this.vocabularyId = vocabularyId;
             this.name = name;
             this.kanji = kanji;

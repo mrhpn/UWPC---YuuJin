@@ -7,6 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Style="{StaticResource PageStyle}"
     mc:Ignorable="d">
+
     <Grid x:Name="ContentArea" Margin="{StaticResource MediumLeftRightMargin}">
         <Grid>
             <Grid.RowDefinitions>
@@ -121,6 +122,22 @@
                 Grid.Column="0"
                 Margin="25,20,0,30">
 
+                <StackPanel.Resources>
+                    <!--  DataTemplate for Favorite column.  -->
+                    <DataTemplate x:Key="FavoriteTemplate">
+                        <TextBlock
+                            x:Name="Favorite"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            x:DefaultBindMode="TwoWay"
+                            FontFamily="Segoe MDL2 Assets"
+                            FontSize="15"
+                            Foreground="DeepPink"
+                            Text="&#xe735;"
+                            Visibility="{Binding FavoriteIconVisibility}" />
+                    </DataTemplate>
+                </StackPanel.Resources>
+
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text="Total Rows: " />
                     <TextBlock x:Name="TextBlock_TotalRows" Margin="8,0,0,0" />
@@ -162,9 +179,9 @@
                             Width="SizeToHeader"
                             Binding="{Binding meaningEn}"
                             Header="Meaning (En)" />
-                        <controls:DataGridCheckBoxColumn
+                        <controls:DataGridTemplateColumn
                             Width="SizeToHeader"
-                            Binding="{Binding isFavorite}"
+                            CellTemplate="{StaticResource FavoriteTemplate}"
                             Header="Favorite" />
                         <controls:DataGridTextColumn
                             Width="SizeToHeader"

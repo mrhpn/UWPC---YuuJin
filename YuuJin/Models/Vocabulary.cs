@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.UI.Xaml;
 
 namespace DataAccessLibrary.Models
 {
@@ -16,6 +17,11 @@ namespace DataAccessLibrary.Models
         public string meaningEn { get; set; }
         public bool isFavorite { get; set; }
         public int unitId { get; set; }
+
+        public Visibility FavoriteIconVisibility
+        {
+            get { return isFavorite == true ? Visibility.Visible : Visibility.Collapsed; }
+        }
 
         public Vocabulary(int displayNo, int vocabularyId, string name, string kanji, string meaning, string meaningEn, bool isFavorite, int unit)
         {

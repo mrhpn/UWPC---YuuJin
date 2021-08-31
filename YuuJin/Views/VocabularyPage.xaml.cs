@@ -142,5 +142,23 @@ namespace YuuJin.Views
                 Noti_Info.Show(2000);
             }
         }
+
+        private void SelectionChanged_DataGrid(object sender, SelectionChangedEventArgs e)
+        {
+            if (e.AddedItems.Count > 0)
+            {
+                Vocabulary selectedRow = (Vocabulary)e.AddedItems[0];
+                if (selectedRow.isFavorite)
+                {
+                    AppBarButton_MarkFavorite.Label = "Unmark as Favorite";
+                    AppBarButton_MarkFavorite.Icon = new SymbolIcon(Symbol.Favorite);
+                }
+                else
+                {
+                    AppBarButton_MarkFavorite.Label = "Mark as Favorite";
+                    AppBarButton_MarkFavorite.Icon = new SymbolIcon(Symbol.OutlineStar);
+                }
+            }
+        }
     }
 }

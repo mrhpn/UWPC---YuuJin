@@ -99,6 +99,7 @@
                     Background="Transparent"
                     DefaultLabelPosition="Right">
                     <AppBarButton
+                        x:Name="AppBarButton_MarkFavorite"
                         Click="Button_MarkFavorite"
                         Icon="OutlineStar"
                         Label="Mark as Favorite" />
@@ -160,7 +161,8 @@
                     HeadersVisibility="Column"
                     IsReadOnly="True"
                     MaxColumnWidth="400"
-                    MinColumnWidth="70">
+                    MinColumnWidth="70"
+                    SelectionChanged="SelectionChanged_DataGrid">
                     <controls:DataGrid.Columns>
                         <controls:DataGridTextColumn
                             Width="Auto"
@@ -186,6 +188,7 @@
                             Width="SizeToHeader"
                             CellTemplate="{StaticResource FavoriteTemplate}"
                             Header="Favorite" />
+                        <controls:DataGridTextColumn Binding="{Binding isFavorite}" Visibility="Collapsed" />
                         <controls:DataGridTextColumn
                             Width="SizeToHeader"
                             Binding="{Binding vocabularyId}"

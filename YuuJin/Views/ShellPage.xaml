@@ -32,9 +32,9 @@
         IsSettingsVisible="True"
         IsTitleBarAutoPaddingEnabled="False"
         ItemInvoked="OnItemInvoked"
-        OpenPaneLength="280"
+        OpenPaneLength="250"
         PaneDisplayMode="Auto"
-        PaneTitle="友人 - YuuJin"
+        PaneTitle="友人 (YuuJin)"
         ScrollViewer.VerticalScrollBarVisibility="Auto"
         SelectedItem="{x:Bind Selected, Mode=OneWay}">
         <winui:NavigationView.MenuItems>

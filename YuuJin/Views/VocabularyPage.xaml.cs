@@ -150,21 +150,27 @@ namespace YuuJin.Views
                 bool isFavorite = selectedRow.isFavorite;
                 int vocabularyId = selectedRow.vocabularyId;
                 var vocabularyModel = new VocabularyModel();
-                vocabularyModel.ToggleFavorite(!isFavorite, vocabularyId);
+                int updated = vocabularyModel.ToggleFavorite(!isFavorite, vocabularyId);
 
-                // TODO: now is assuming the update is always works
-                AppBarButton_MarkFavorite.Label = "Mark as Favorite";
-                AppBarButton_MarkFavorite.Icon = new SymbolIcon(Symbol.OutlineStar);
-
-                string level = ((ComboBoxItem)ComboBox_Level.SelectedItem).Tag.ToString();
-
-                if (((ComboBoxItem)ComboBox_Unit.SelectedItem) != null)
+                if (updated > 0)
                 {
-                    string unit = ((ComboBoxItem)ComboBox_Unit.SelectedItem).Content.ToString();
-                    loadVocabularies($"{level}.{unit}");
-                }
+                    AppBarButton_MarkFavorite.Label = "Mark as Favorite";
+                    AppBarButton_MarkFavorite.Icon = new SymbolIcon(Symbol.OutlineStar);
 
-                // TODO: select the updated row programmatically using vocabularyId
+                    string level = ((ComboBoxItem)ComboBox_Level.SelectedItem).Tag.ToString();
+
+                    if (((ComboBoxItem)ComboBox_Unit.SelectedItem) != null)
+                    {
+                        string unit = ((ComboBoxItem)ComboBox_Unit.SelectedItem).Content.ToString();
+                        loadVocabularies($"{level}.{unit}");
+                    }
+
+                    // TODO: select the updated row programmatically using vocabularyId
+                }
+                else
+                {
+                    Noti_Error.Show(2000);
+                }
             }
         }
 
@@ -182,6 +188,63 @@ namespace YuuJin.Views
                 {
                     AppBarButton_MarkFavorite.Label = "Mark as Favorite";
                     AppBarButton_MarkFavorite.Icon = new SymbolIcon(Symbol.OutlineStar);
+                }
+            }
+        }
+
+        private async void Button_Edit(object sender, RoutedEventArgs e)
+        {
+            Vocabulary selectedRow = (Vocabulary)DataGrid_Vocabulary.SelectedItem;
+
+            if (selectedRow == null)
+            {
+                Noti_Info.Show(2000);
+            }
+            else
+            {
+                TextBox_Name.Text = "";
+                TextBox_Kanji.Text = "";
+                TextBox_Meaning.Text = "";
+                TextBox_Meaning_En.Text = "";
+                CheckBox_Favorite.IsChecked = false;
+
+                TextBox_Name.Text = selectedRow.name;
+                TextBox_Kanji.Text = selectedRow.kanji;
+                TextBox_Meaning.Text = selectedRow.meaning;
+                TextBox_Meaning_En.Text = selectedRow.meaningEn;
+                CheckBox_Favorite.IsChecked = selectedRow.isFavorite;
+
+                // updating vocabulary
+                ContentDialogResult result = await ContentDialog_UpdateVocabulary.ShowAsync();
+                if (result == ContentDialogResult.Primary)
+                {
+                    string name = TextBox_Name.Text;
+                    string kanji = TextBox_Kanji.Text;
+                    string meaning = TextBox_Meaning.Text;
+                    string meaningEn = TextBox_Meaning_En.Text;
+                    bool isFavorite = (bool) CheckBox_Favorite.IsChecked;
+                    Vocabulary updatedVocabulary = new Vocabulary(name, kanji, meaning, meaningEn, isFavorite);
+
+                    var updated = new VocabularyModel().UpdateVocabulary(selectedRow.vocabularyId, updatedVocabulary);
+
+                    if (updated == 1)
+                    {
+                        Noti_Success.Show(2000);
+
+                        // refresh the datagrid
+                        string level = ((ComboBoxItem)ComboBox_Level.SelectedItem).Tag.ToString();
+                        if (((ComboBoxItem)ComboBox_Unit.SelectedItem) != null)
+                        {
+                            string unit = ((ComboBoxItem)ComboBox_Unit.SelectedItem).Content.ToString();
+                            loadVocabularies($"{level}.{unit}");
+                        }
+
+                        // TODO: select the updated row programmatically using vocabularyId
+                    }
+                    else
+                    {
+                        Noti_Error.Show(2000);
+                    }
                 }
             }
         }

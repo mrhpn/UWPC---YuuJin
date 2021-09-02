@@ -45,5 +45,14 @@ namespace DataAccessLibrary.Models
             this.meaningEn = meaningEn;
             this.isFavorite = isFavorite;
         }
+
+        public Vocabulary(string name, string kanji, string meaning, string meaningEn, bool isFavorite)
+        {
+            this.name = name;
+            this.kanji = kanji;
+            this.meaning = meaning;
+            this.meaningEn = meaningEn;
+            this.isFavorite = isFavorite;
+        }
     }
 }

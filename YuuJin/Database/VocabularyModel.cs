@@ -39,8 +39,10 @@ namespace YuuJin.Database
             return entries;
         }
 
-        public void ToggleFavorite(bool isFavorite, int vocabularyId)
+        public int ToggleFavorite(bool isFavorite, int vocabularyId)
         {
+            int updated = 0;
+
             string dbpath = Path.Combine(ApplicationData.Current.LocalFolder.Path, "yuuJin.db");
             using (SqliteConnection db = new SqliteConnection($"Filename={dbpath}"))
             {
@@ -48,10 +50,31 @@ namespace YuuJin.Database
 
                 SqliteCommand selectCommand = new SqliteCommand($"UPDATE vocabularies SET is_favorite = {isFavorite} WHERE vocabulary_id = {vocabularyId}", db);
 
-                selectCommand.ExecuteNonQuery();
+                updated = selectCommand.ExecuteNonQuery();
 
                 db.Close();
             }
+
+            return updated;
+        }
+
+        public int UpdateVocabulary(int vocabularyId, Vocabulary vocabulary)
+        {
+            int updated = 0;
+
+            string dbpath = Path.Combine(ApplicationData.Current.LocalFolder.Path, "yuuJin.db");
+            using (SqliteConnection db = new SqliteConnection($"Filename={dbpath}"))
+            {
+                db.Open();
+
+                SqliteCommand selectCommand = new SqliteCommand($"UPDATE vocabularies SET name = '{vocabulary.name}', kanji = '{vocabulary.kanji}', meaning = '{vocabulary.kanji}', meaning_en = '{vocabulary.kanji}', is_favorite = {vocabulary.isFavorite} WHERE vocabulary_id = {vocabularyId}", db);
+
+                updated = selectCommand.ExecuteNonQuery();
+
+                db.Close();
+            }
+
+            return updated;
         }
     }
 }

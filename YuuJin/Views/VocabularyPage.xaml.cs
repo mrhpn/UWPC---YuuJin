@@ -227,7 +227,7 @@ namespace YuuJin.Views
 
                     var updated = new VocabularyModel().UpdateVocabulary(selectedRow.vocabularyId, updatedVocabulary);
 
-                    if (updated == 1)
+                    if (updated > 0)
                     {
                         Noti_Success.Show(2000);
 
@@ -240,6 +240,41 @@ namespace YuuJin.Views
                         }
 
                         // TODO: select the updated row programmatically using vocabularyId
+                    }
+                    else
+                    {
+                        Noti_Error.Show(2000);
+                    }
+                }
+            }
+        }
+
+        private async void Button_Delete(object sender, RoutedEventArgs e)
+        {
+            Vocabulary selectedRow = (Vocabulary)DataGrid_Vocabulary.SelectedItem;
+
+            if (selectedRow == null)
+            {
+                Noti_Info.Show(2000);
+            }
+            else
+            {
+                ContentDialogResult result = await ContentDialog_DeleteVocabulary.ShowAsync();
+                if (result == ContentDialogResult.Primary)
+                {
+                    var deleted = new VocabularyModel().DeleteVocabulary(selectedRow.vocabularyId);
+
+                    if (deleted > 0)
+                    {
+                        Noti_Success.Show(2000);
+
+                        // refresh the datagrid
+                        string level = ((ComboBoxItem)ComboBox_Level.SelectedItem).Tag.ToString();
+                        if (((ComboBoxItem)ComboBox_Unit.SelectedItem) != null)
+                        {
+                            string unit = ((ComboBoxItem)ComboBox_Unit.SelectedItem).Content.ToString();
+                            loadVocabularies($"{level}.{unit}");
+                        }
                     }
                     else
                     {

@@ -76,5 +76,24 @@ namespace YuuJin.Database
 
             return updated;
         }
+
+        public int DeleteVocabulary(int vocabularyId)
+        {
+            int deleted = 0;
+
+            string dbpath = Path.Combine(ApplicationData.Current.LocalFolder.Path, "yuuJin.db");
+            using (SqliteConnection db = new SqliteConnection($"Filename={dbpath}"))
+            {
+                db.Open();
+
+                SqliteCommand selectCommand = new SqliteCommand($"DELETE FROM vocabularies WHERE vocabulary_id = {vocabularyId}", db);
+
+                deleted = selectCommand.ExecuteNonQuery();
+
+                db.Close();
+            }
+
+            return deleted;
+        }
     }
 }

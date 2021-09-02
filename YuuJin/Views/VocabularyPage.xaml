@@ -107,7 +107,10 @@
                         Click="Button_Edit"
                         Icon="Edit"
                         Label="Edit" />
-                    <AppBarButton Icon="Delete" Label="Delete" />
+                    <AppBarButton
+                        Click="Button_Delete"
+                        Icon="Delete"
+                        Label="Delete" />
 
                     <CommandBar.SecondaryCommands>
                         <AppBarButton Icon="Print" Label="Print" />
@@ -372,6 +375,29 @@
 
         </ContentDialog>
         <!--  End Edit Content Dialog  -->
+
+        <!--  Delete Content Dialog  -->
+        <ContentDialog
+            xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+            xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+            x:Name="ContentDialog_DeleteVocabulary"
+            Title="Are you sure to delete?"
+            MaxWidth="200"
+            CloseButtonText="Cancel"
+            DefaultButton="Primary"
+            PrimaryButtonText="Delete">
+            <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                <RichTextBlock>
+                    <Paragraph
+                        CharacterSpacing="10"
+                        FontFamily="Pyidaungsu"
+                        Foreground="Red">
+                        The selected data will be deleted forever!<LineBreak />
+                        The data associated with it also be deleted. You cannot get it back.</Paragraph>
+                </RichTextBlock>
+            </StackPanel>
+        </ContentDialog>
+        <!--  End Delete Content Dialog  -->
 
         <VisualStateManager.VisualStateGroups>
             <VisualStateGroup>

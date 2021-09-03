@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Windows.Storage;
+using YuuJin.Models;
 
 namespace YuuJin.Database
 {
@@ -94,6 +95,44 @@ namespace YuuJin.Database
             }
 
             return deleted;
+        }
+
+        public int InsertVocabulary(Vocabulary newVocabulary)
+        {
+            int added = 0;
+
+            string dbpath = Path.Combine(ApplicationData.Current.LocalFolder.Path, "yuuJin.db");
+            using (SqliteConnection db = new SqliteConnection($"Filename={dbpath}"))
+            {
+                db.Open();
+
+                SqliteCommand selectCommand = new SqliteCommand($"INSERT INTO vocabularies (name, kanji, meaning, meaning_en, is_favorite, unit_id) VALUES ('{newVocabulary.name}', '{newVocabulary.kanji}', '{newVocabulary.meaning}', '{newVocabulary.meaningEn}', {newVocabulary.isFavorite}, {newVocabulary.unit})", db);
+
+                added = selectCommand.ExecuteNonQuery();
+
+                db.Close();
+            }
+
+            return added;
+        }
+
+        public int InsertVocabularyExcel(VocabularyExcel newVocabulary)
+        {
+            int added = 0;
+
+            string dbpath = Path.Combine(ApplicationData.Current.LocalFolder.Path, "yuuJin.db");
+            using (SqliteConnection db = new SqliteConnection($"Filename={dbpath}"))
+            {
+                db.Open();
+
+                SqliteCommand selectCommand = new SqliteCommand($"INSERT INTO vocabularies (name, kanji, meaning, meaning_en, unit_id) VALUES ('{newVocabulary.Vocabulary}', '{newVocabulary.Kanji}', '{newVocabulary.Meaning}', '{newVocabulary.MeaningEn}', {newVocabulary.Unit})", db);
+
+                added = selectCommand.ExecuteNonQuery();
+
+                db.Close();
+            }
+
+            return added;
         }
     }
 }

@@ -78,11 +78,6 @@ namespace YuuJin.Views
             TextBlock_TotalRows.Text = bindingList.Count.ToString();
         }
 
-        private void Add_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
-        {
-            
-        }
-
         private void SelectionChanged_Level(object sender, SelectionChangedEventArgs e)
         {
             ComboBox_Unit.Items.Clear();
@@ -93,6 +88,7 @@ namespace YuuJin.Views
             {
                 for (int i = 1; i <= 13; i++)
                 {
+                    ComboBox_Unit.IsEnabled = true;
                     ComboBox_Unit.Items.Add(new ComboBoxItem { Tag = i, Content = i.ToString() });
                 }
             }
@@ -100,6 +96,7 @@ namespace YuuJin.Views
             {
                 for (int i = 1; i <= 12; i++)
                 {
+                    ComboBox_Unit.IsEnabled = true;
                     ComboBox_Unit.Items.Add(new ComboBoxItem { Tag = i, Content = i.ToString() });
                 }
             }
@@ -107,6 +104,7 @@ namespace YuuJin.Views
             {
                 for (int i = 26; i <= 50; i++)
                 {
+                    ComboBox_Unit.IsEnabled = true;
                     ComboBox_Unit.Items.Add(new ComboBoxItem { Tag = i, Content = i.ToString() });
                 }
             }
@@ -114,8 +112,14 @@ namespace YuuJin.Views
             {
                 for (int i = 1; i <= 25; i++)
                 {
+                    ComboBox_Unit.IsEnabled = true;
                     ComboBox_Unit.Items.Add(new ComboBoxItem { Tag = i, Content = i.ToString() });
                 }
+            }
+            else if (selectedId == "6")
+            {
+                ComboBox_Unit.IsEnabled = false;
+                loadVocabularies("0");
             }
         }
 
@@ -137,6 +141,24 @@ namespace YuuJin.Views
             // set 'Mark as Favorite' button to default
             AppBarButton_MarkFavorite.Label = "Mark as Favorite";
             AppBarButton_MarkFavorite.Icon = new SymbolIcon(Symbol.OutlineStar);
+        }
+
+        private void SelectionChanged_DataGrid(object sender, SelectionChangedEventArgs e)
+        {
+            if (e.AddedItems.Count > 0)
+            {
+                Vocabulary selectedRow = (Vocabulary)e.AddedItems[0];
+                if (selectedRow.isFavorite)
+                {
+                    AppBarButton_MarkFavorite.Label = "Unmark as Favorite";
+                    AppBarButton_MarkFavorite.Icon = new SymbolIcon(Symbol.Favorite);
+                }
+                else
+                {
+                    AppBarButton_MarkFavorite.Label = "Mark as Favorite";
+                    AppBarButton_MarkFavorite.Icon = new SymbolIcon(Symbol.OutlineStar);
+                }
+            }
         }
 
         private void Button_MarkFavorite(object sender, RoutedEventArgs e)
@@ -176,20 +198,54 @@ namespace YuuJin.Views
             }
         }
 
-        private void SelectionChanged_DataGrid(object sender, SelectionChangedEventArgs e)
+        private async void Button_Add(object sender, RoutedEventArgs e)
         {
-            if (e.AddedItems.Count > 0)
+            Add_TextBox_Name.Text = "";
+            Add_TextBox_Kanji.Text = "";
+            Add_TextBox_Meaning.Text = "";
+            Add_TextBox_Meaning_En.Text = "";
+            Add_CheckBox_Favorite.IsChecked = false;
+
+            string level = ((ComboBoxItem)ComboBox_Level.SelectedItem).Tag.ToString();
+            string unit = "";
+            if (level == "6")
             {
-                Vocabulary selectedRow = (Vocabulary)e.AddedItems[0];
-                if (selectedRow.isFavorite)
+                unit = "0";
+                Add_TextBox_Description.Text = "You are adding vocabulary to Free.";
+            }
+            else
+            {
+                if (((ComboBoxItem)ComboBox_Unit.SelectedItem) != null)
                 {
-                    AppBarButton_MarkFavorite.Label = "Unmark as Favorite";
-                    AppBarButton_MarkFavorite.Icon = new SymbolIcon(Symbol.Favorite);
+                    unit = ((ComboBoxItem)ComboBox_Unit.SelectedItem).Content.ToString();
+                    Add_TextBox_Description.Text = $"You are adding vocabulary to level {level}, unit {unit}.";
+                }
+            }
+
+            ContentDialogResult result = await ContentDialog_AddVocabulary.ShowAsync();
+            if (result == ContentDialogResult.Primary)
+            {
+                string name = Add_TextBox_Name.Text;
+                string kanji = Add_TextBox_Kanji.Text;
+                string meaning = Add_TextBox_Meaning.Text;
+                string meaningEn = Add_TextBox_Meaning_En.Text;
+                bool isFavorite = (bool)Add_CheckBox_Favorite.IsChecked;
+
+                Vocabulary newVocabulary = new Vocabulary(name, kanji, meaning, meaningEn, isFavorite, $"{level}.{unit}");
+                var added = new VocabularyModel().InsertVocabulary(newVocabulary);
+
+                if (added > 0)
+                {
+                    Noti_Success.Show(2000);
+
+                    // refresh the datagrid
+                    loadVocabularies($"{level}.{unit}");
+
+                    // TODO: select the added row programmatically using vocabularyId
                 }
                 else
                 {
-                    AppBarButton_MarkFavorite.Label = "Mark as Favorite";
-                    AppBarButton_MarkFavorite.Icon = new SymbolIcon(Symbol.OutlineStar);
+                    Noti_Error.Show(2000);
                 }
             }
         }

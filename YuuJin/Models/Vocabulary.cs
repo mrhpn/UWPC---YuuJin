@@ -16,23 +16,21 @@ namespace DataAccessLibrary.Models
         public string meaning { get; set; }
         public string meaningEn { get; set; }
         public bool isFavorite { get; set; }
-        public int unitId { get; set; }
+        public string unit { get; set; }
 
         public Visibility FavoriteIconVisibility
         {
             get { return isFavorite == true ? Visibility.Visible : Visibility.Collapsed; }
         }
 
-        public Vocabulary(int displayNo, int vocabularyId, string name, string kanji, string meaning, string meaningEn, bool isFavorite, int unit)
+        public Vocabulary(string name, string kanji, string meaning, string meaningEn, bool isFavorite, string unit)
         {
-            this.displayNo = displayNo;
-            this.vocabularyId = vocabularyId;
             this.name = name;
             this.kanji = kanji;
             this.meaning = meaning;
             this.meaningEn = meaningEn;
             this.isFavorite = isFavorite;
-            this.unitId = unitId;
+            this.unit = unit;
         }
 
         public Vocabulary(int displayNo, int vocabularyId, string name, string kanji, string meaning, string meaningEn, bool isFavorite)

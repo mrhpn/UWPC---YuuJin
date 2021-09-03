@@ -80,12 +80,15 @@ namespace YuuJin.Views
             }
         }
 
-        private async void Button_ImportExcel(object sender, RoutedEventArgs e)
+        private async void Button_Check(object sender, RoutedEventArgs e)
         {
             string level = ((ComboBoxItem)ComboBox_Level.SelectedItem).Tag.ToString();
             string unit = ((ComboBoxItem)ComboBox_Unit.SelectedItem).Content.ToString();
-            string insertUnit = $"{level}.{unit}";
+            string checkUnit = $"{level}.{unit}";
+        }
 
+        private async void Button_ImportExcel(object sender, RoutedEventArgs e)
+        {
             FileOpenPicker openPicker = new FileOpenPicker();
             openPicker.ViewMode = PickerViewMode.Thumbnail;
             openPicker.SuggestedStartLocation = PickerLocationId.DocumentsLibrary;

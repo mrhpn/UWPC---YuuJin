@@ -264,6 +264,7 @@
     <Content Include="Database\sqliteYuuJin.db">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <PRIResource Include="Strings\ja-jp\Resources.resw" />
     <None Include="YuuJin_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>

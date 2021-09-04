@@ -19,28 +19,28 @@
 
         <StackPanel
             Grid.Row="0"
-            Margin="20,0,7,0"
+            Margin="15,0,7,0"
             Orientation="Horizontal">
             <ComboBox
                 x:Name="ComboBox_PracticeType"
+                x:Uid="Practice_PracticeType"
                 Width="155"
-                Margin="0,0,30,0"
+                Margin="0,0,20,0"
                 BorderThickness="0.5"
                 CornerRadius="6"
-                Header="Practice Type"
                 PlaceholderText="All">
-                <ComboBoxItem Content="All" Tag="1" />
-                <ComboBoxItem Content="Only Favorites" Tag="2" />
-                <ComboBoxItem Content="Without Favorites" Tag="3" />
+                <ComboBoxItem x:Uid="PracticeType_1" Tag="1" />
+                <ComboBoxItem x:Uid="PracticeType_2" Tag="2" />
+                <ComboBoxItem x:Uid="PracticeType_3" Tag="3" />
             </ComboBox>
 
             <ComboBox
                 x:Name="ComboBox_Level"
+                x:Uid="Vocabulary_Level"
                 Width="90"
                 Margin="0,0,7,0"
                 BorderThickness="0.5"
                 CornerRadius="6"
-                Header="Level"
                 PlaceholderText="N3"
                 SelectionChanged="SelectionChanged_Level">
                 <ComboBoxItem Content="N2" Tag="2" />
@@ -51,36 +51,33 @@
             </ComboBox>
             <ComboBox
                 x:Name="ComboBox_Unit"
+                x:Uid="Practice_From"
                 Grid.Column="1"
                 Width="90"
                 Margin="0,0,7,0"
                 BorderThickness="0.5"
                 CornerRadius="6"
-                Header="From"
-                PlaceholderText="Choose"
                 SelectionChanged="SelectionChanged_UnitFrom" />
             <ComboBox
                 x:Name="ComboBox_UnitTo"
+                x:Uid="Practice_To"
                 Grid.Column="1"
                 Width="90"
                 Margin="0,0,7,0"
                 BorderThickness="0.5"
                 CornerRadius="6"
-                Header="To"
                 IsEnabled="False"
-                PlaceholderText="Choose"
                 SelectionChanged="SelectionChanged_UnitTo" />
 
             <ComboBox
                 x:Name="ComboBox_WantToSee"
+                x:Uid="Practice_WantToSee"
                 Width="Auto"
                 Margin="20,0,7,0"
                 BorderThickness="0.5"
-                CornerRadius="6"
-                Header="I want to see"
-                PlaceholderText="Vocabulary">
-                <ComboBoxItem Content="Vocabulary" Tag="1" />
-                <ComboBoxItem Content="Meaning" Tag="2" />
+                CornerRadius="6">
+                <ComboBoxItem x:Uid="WantToSee_Vocabulary" Tag="1" />
+                <ComboBoxItem x:Uid="WantToSee_Meaning" Tag="2" />
             </ComboBox>
 
             <Button
@@ -93,7 +90,7 @@
                 CornerRadius="5"
                 IsEnabled="False">
                 <StackPanel Orientation="Horizontal">
-                    <TextBlock Margin="0,0,6,0" Text="Start" />
+                    <TextBlock x:Uid="Practice_Start" Margin="0,0,6,0" />
                     <FontIcon
                         FontFamily="Segoe MDL2 Assets"
                         FontSize="15"
@@ -102,10 +99,10 @@
             </Button>
         </StackPanel>
 
-        <StackPanel Grid.Row="3" Margin="25,20,0,30">
+        <StackPanel Grid.Row="3" Margin="15,20,0,30">
 
             <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Total Rows: " />
+                <TextBlock x:Uid="TextBlock_TotalRows" />
                 <TextBlock x:Name="TextBlock_TotalRows" Margin="8,0,0,0" />
             </StackPanel>
 
@@ -133,24 +130,24 @@
                         Header="#" />
                     <controls:DataGridTextColumn
                         x:Name="Col_Name"
+                        x:Uid="Vocabulary_TableName"
                         Width="Auto"
-                        Binding="{Binding name}"
-                        Header="Name" />
+                        Binding="{Binding name}" />
                     <controls:DataGridTextColumn
                         x:Name="Col_Kanji"
+                        x:Uid="Vocabulary_TableKanji"
                         Width="Auto"
-                        Binding="{Binding kanji}"
-                        Header="Kanji" />
+                        Binding="{Binding kanji}" />
                     <controls:DataGridTextColumn
                         x:Name="Col_Meaning"
+                        x:Uid="Vocabulary_TableMeaning"
                         Width="Auto"
-                        Binding="{Binding meaning}"
-                        Header="Meaning" />
+                        Binding="{Binding meaning}" />
                     <controls:DataGridTextColumn
                         x:Name="Col_MeaningEn"
+                        x:Uid="Vocabulary_TableMeaningEn"
                         Width="Auto"
-                        Binding="{Binding meaningEn}"
-                        Header="Meaning (En)" />
+                        Binding="{Binding meaningEn}" />
                     <controls:DataGridTextColumn Binding="{Binding vocabularyId}" Visibility="Collapsed" />
                 </controls:DataGrid.Columns>
             </controls:DataGrid>
@@ -160,7 +157,6 @@
                 x:Name="Panel_AnswerBox"
                 Margin="0,20,0,0"
                 Padding="20,5,5,5"
-                Background="Beige"
                 Orientation="Horizontal"
                 Visibility="Collapsed">
                 <TextBlock

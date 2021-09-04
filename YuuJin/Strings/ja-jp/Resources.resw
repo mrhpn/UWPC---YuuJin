@@ -126,35 +126,35 @@
     <comment>Application description</comment>
   </data>
   <data name="Shell_Vocabulary.Content" xml:space="preserve">
-    <value>Vocabulary</value>
+    <value>語彙</value>
     <comment>Navigation view item name for Vocabulary</comment>
   </data>
   <data name="Shell_Kanji.Content" xml:space="preserve">
-    <value>Kanji</value>
+    <value>漢字</value>
     <comment>Navigation view item name for Kanji</comment>
   </data>
   <data name="Settings_Theme.Text" xml:space="preserve">
-    <value>Choose Theme</value>
+    <value>テーマを選択</value>
     <comment>Choose theme text for Settings</comment>
   </data>
   <data name="Settings_Theme_Dark.Content" xml:space="preserve">
-    <value>Dark</value>
+    <value>暗い</value>
     <comment>Dark theme text for Settings</comment>
   </data>
   <data name="Settings_Theme_Default.Content" xml:space="preserve">
-    <value>Windows default</value>
+    <value>Windowsのデフォルト</value>
     <comment>Windows default theme text for Settings</comment>
   </data>
   <data name="Settings_Theme_Light.Content" xml:space="preserve">
-    <value>Light</value>
+    <value>光</value>
     <comment>Light theme text for Settings</comment>
   </data>
   <data name="Settings_About.Text" xml:space="preserve">
-    <value>About this application</value>
+    <value>このアプリケーションについて</value>
     <comment>About this application title for Settings</comment>
   </data>
   <data name="Settings_AboutDescription.Text" xml:space="preserve">
-    <value>友人 (YuuJin) is where you can practice Japanese vocabulary and kanji randomly.  But currently is only available for vocabulary. N5 and N4 is from みんなの日本語, N3 耳から覚える, and N2 そまとめ.</value>
+    <value>友人（YuuJin）は、日本語の語彙や漢字をランダムに練習できる場所です。しかし、現在は語彙でのみ利用可能です。 N5とN4は、みんなの日本語、N3耳から来る、N2そまとめからのものです。</value>
     <comment>About this application description for Settings</comment>
   </data>
   <data name="Settings_PrivacyTermsLink.Content" xml:space="preserve">
@@ -166,14 +166,15 @@
     <comment>Here is your Privacy Statement url for Settings</comment>
   </data>
   <data name="Settings_Personalization.Text" xml:space="preserve">
-    <value>Personalization</value>
+    <value>パーソナライズ</value>
     <comment>Personalization text for Settings</comment>
   </data>
   <data name="Settings_Contact.Text" xml:space="preserve">
-    <value>Contact</value>
+    <value>接触</value>
+    <comment>Contact</comment>
   </data>
   <data name="Settings_ContactDescription.Text" xml:space="preserve">
-    <value>Any suggestion or contributions to 友人? Feel free to contact with email:</value>
+    <value>戴への提案や貢献はありますか？メールでお気軽にお問い合わせください：</value>
     <comment>Contact Description</comment>
   </data>
   <data name="Settings_DeveloperEmail.NavigateUri" xml:space="preserve">
@@ -181,129 +182,129 @@
     <comment>Developer Email</comment>
   </data>
   <data name="PracticeType_1.Content" xml:space="preserve">
-    <value>All</value>
+    <value>全</value>
   </data>
   <data name="PracticeType_2.Content" xml:space="preserve">
-    <value>Only Favorites</value>
+    <value>お気に入りのみ</value>
   </data>
   <data name="PracticeType_3.Content" xml:space="preserve">
-    <value>Without Favorites</value>
+    <value>お気に入りなし</value>
   </data>
   <data name="Practice_From.Header" xml:space="preserve">
-    <value>From</value>
+    <value>から</value>
   </data>
   <data name="Practice_From.PlaceholderText" xml:space="preserve">
-    <value>Choose</value>
+    <value>選ぶ</value>
   </data>
   <data name="Practice_PracticeType.Header" xml:space="preserve">
-    <value>Practice Type</value>
+    <value>練習タイプ</value>
   </data>
   <data name="Practice_Start.Text" xml:space="preserve">
-    <value>Start</value>
+    <value>始める</value>
   </data>
   <data name="Practice_To.Header" xml:space="preserve">
-    <value>To</value>
+    <value>まで</value>
   </data>
   <data name="Practice_To.PlaceholderText" xml:space="preserve">
-    <value>Choose</value>
+    <value>選ぶ</value>
   </data>
   <data name="Practice_WantToSee.Header" xml:space="preserve">
-    <value>I want to see</value>
+    <value>見たい</value>
   </data>
   <data name="Shell_Vocabulary_Add.Content" xml:space="preserve">
-    <value>Add</value>
+    <value>作成</value>
   </data>
   <data name="Shell_Vocabulary_Favorites.Content" xml:space="preserve">
-    <value>Favorites</value>
+    <value>お気に入り</value>
   </data>
   <data name="Shell_Vocabulary_Practice.Content" xml:space="preserve">
-    <value>Practice</value>
+    <value>練習</value>
   </data>
   <data name="TextBlock_TotalRows.Text" xml:space="preserve">
-    <value>Total Rows:</value>
+    <value>合計行:</value>
   </data>
   <data name="VocabularyAdd_Check.Text" xml:space="preserve">
-    <value>Check</value>
+    <value>チェック</value>
   </data>
   <data name="VocabularyAdd_CSVFormatTitle.Text" xml:space="preserve">
-    <value>CSV Format</value>
+    <value>CSV フォーマット</value>
   </data>
   <data name="VocabularyAdd_ImportantNote1.Text" xml:space="preserve">
-    <value>-  Your actual data must start from row number line 2.</value>
+    <value>-   実際のデータは、行番号の2行目から開始する必要があります。</value>
   </data>
   <data name="VocabularyAdd_ImportantNote2.Text" xml:space="preserve">
-    <value>-  Unit column is [level][unit]. Example: 31 for N3 and Lesson-1.</value>
+    <value>-   単位列は[レベル] [単位]です。例：N3およびレッスン1の場合は31。</value>
   </data>
   <data name="VocabularyAdd_ImportantNoteTitle.Text" xml:space="preserve">
-    <value>Important Note</value>
+    <value>重要な注意点</value>
   </data>
   <data name="VocabularyAdd_ImportButton.Text" xml:space="preserve">
-    <value>Import CSV</value>
+    <value>CSV をインポート</value>
   </data>
   <data name="VocabularyAdd_ImportCSVHeader.Text" xml:space="preserve">
-    <value>The headers must be exactly as shown as below.</value>
+    <value>ヘッダーは、以下に示すとおりである必要があります。</value>
   </data>
   <data name="VocabularyAdd_RequiredFieldsTitle.Text" xml:space="preserve">
-    <value>Required Fields</value>
+    <value>必須フィールド</value>
   </data>
   <data name="VocabularyAdd_RequriedField1.Text" xml:space="preserve">
-    <value>1.   Vocabulary in Hiragana/Katakana</value>
+    <value>1.   語彙</value>
   </data>
   <data name="VocabularyAdd_RequriedField2.Text" xml:space="preserve">
-    <value>2.   Kanji</value>
+    <value>2.   漢字</value>
   </data>
   <data name="VocabularyAdd_RequriedField3.Text" xml:space="preserve">
-    <value>3.   Meaning</value>
+    <value>3.   意味</value>
   </data>
   <data name="VocabularyAdd_RequriedField4.Text" xml:space="preserve">
-    <value>4.   Meaning (En) [Not Mandatory]</value>
+    <value>4.   意味 (英語) [必須ではありません]</value>
   </data>
   <data name="VocabularyAdd_RequriedField5.Text" xml:space="preserve">
-    <value>5.   Unit</value>
+    <value>5.   ユニット</value>
   </data>
   <data name="Vocabulary_Add.Label" xml:space="preserve">
-    <value>Add</value>
+    <value>追加</value>
   </data>
   <data name="Vocabulary_Delete.Label" xml:space="preserve">
-    <value>Delete</value>
+    <value>消去</value>
   </data>
   <data name="Vocabulary_Edit.Label" xml:space="preserve">
-    <value>Edit</value>
+    <value>編集</value>
   </data>
   <data name="Vocabulary_Level.Header" xml:space="preserve">
-    <value>Level</value>
+    <value>レベル</value>
   </data>
   <data name="Vocabulary_MarkFavorite.Label" xml:space="preserve">
-    <value>Mark As Favoriteddd</value>
+    <value>お気に入りとしてマーク</value>
   </data>
   <data name="Vocabulary_Print.Label" xml:space="preserve">
-    <value>Print</value>
+    <value>印刷</value>
   </data>
   <data name="Vocabulary_Search.PlaceholderText" xml:space="preserve">
-    <value>Search</value>
+    <value>検索</value>
   </data>
   <data name="Vocabulary_TableFavorite.Header" xml:space="preserve">
-    <value>Favorite</value>
+    <value>お気に入り</value>
   </data>
   <data name="Vocabulary_TableKanji.Header" xml:space="preserve">
-    <value>Kanji</value>
+    <value>漢字</value>
   </data>
   <data name="Vocabulary_TableMeaning.Header" xml:space="preserve">
-    <value>Meaning</value>
+    <value>意味</value>
   </data>
   <data name="Vocabulary_TableMeaningEn.Header" xml:space="preserve">
-    <value>Meaning (En)</value>
+    <value>意味 (英語)</value>
   </data>
   <data name="Vocabulary_TableName.Header" xml:space="preserve">
-    <value>Name</value>
+    <value>語彙</value>
   </data>
   <data name="Vocabulary_Unit.Header" xml:space="preserve">
-    <value>Unit</value>
+    <value>ユニット</value>
   </data>
   <data name="WantToSee_Meaning.Content" xml:space="preserve">
-    <value>Meaning</value>
+    <value>意味</value>
   </data>
   <data name="WantToSee_Vocabulary.Content" xml:space="preserve">
-    <value>Vocabulary</value>
+    <value>語彙</value>
   </data>
 </root>

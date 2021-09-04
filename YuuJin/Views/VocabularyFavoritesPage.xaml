@@ -37,7 +37,7 @@
                 <Grid
                     x:Name="Grid_Filters"
                     Grid.Column="0"
-                    Margin="20,0,10,0"
+                    Margin="15,0,10,0"
                     HorizontalAlignment="Stretch"
                     VerticalAlignment="Center">
 
@@ -49,12 +49,12 @@
 
                     <ComboBox
                         x:Name="ComboBox_Level"
+                        x:Uid="Vocabulary_Level"
                         Grid.Column="0"
                         Width="90"
                         Margin="0,0,7,0"
                         BorderThickness="0.5"
                         CornerRadius="6"
-                        Header="Level"
                         PlaceholderText="N3"
                         SelectionChanged="SelectionChanged_Level">
                         <ComboBoxItem Content="N2" Tag="2" />
@@ -66,12 +66,12 @@
 
                     <ComboBox
                         x:Name="ComboBox_Unit"
+                        x:Uid="Vocabulary_Unit"
                         Grid.Column="1"
                         Width="90"
                         Margin="0,0,7,0"
                         BorderThickness="0.5"
                         CornerRadius="6"
-                        Header="Unit"
                         PlaceholderText="Unit"
                         SelectionChanged="SelectionChanged_Unit" />
                 </Grid>
@@ -79,6 +79,7 @@
 
                 <AutoSuggestBox
                     Name="SearchBox"
+                    x:Uid="Vocabulary_Search"
                     Grid.Row="0"
                     Grid.Column="1"
                     Width="170"
@@ -86,7 +87,6 @@
                     VerticalAlignment="Bottom"
                     BorderThickness="0.5"
                     CornerRadius="6"
-                    PlaceholderText="Search"
                     QueryIcon="Find"
                     TextChanged="AutoSuggestBox_TextChanged"
                     ToolTipService.ToolTip="Searchable Fields: Vocabulary and Meaning" />
@@ -100,20 +100,20 @@
                     Background="Transparent"
                     DefaultLabelPosition="Right">
                     <AppBarButton
+                        x:Uid="Vocabulary_Add"
                         Click="Button_Add"
-                        Icon="Add"
-                        Label="Add" />
+                        Icon="Add" />
                     <AppBarButton
+                        x:Uid="Vocabulary_Edit"
                         Click="Button_Edit"
-                        Icon="Edit"
-                        Label="Edit" />
+                        Icon="Edit" />
                     <AppBarButton
+                        x:Uid="Vocabulary_Delete"
                         Click="Button_Delete"
-                        Icon="Delete"
-                        Label="Delete" />
+                        Icon="Delete" />
 
                     <CommandBar.SecondaryCommands>
-                        <AppBarButton Icon="Print" Label="Print" />
+                        <AppBarButton x:Uid="Vocabulary_Print" Icon="Print" />
                     </CommandBar.SecondaryCommands>
 
                 </CommandBar>
@@ -123,16 +123,16 @@
             <Rectangle
                 Width="Auto"
                 Height="0.1"
-                Margin="20,0,20,0"
+                Margin="15,0,20,0"
                 Fill="#E4E4E4" />
 
             <StackPanel
                 Grid.Row="1"
                 Grid.Column="0"
-                Margin="25,20,0,30">
+                Margin="15,20,0,30">
 
                 <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="Total Rows: " />
+                    <TextBlock x:Uid="TextBlock_TotalRows" />
                     <TextBlock x:Name="TextBlock_TotalRows" Margin="8,0,0,0" />
                 </StackPanel>
 
@@ -157,21 +157,21 @@
                             Binding="{Binding displayNo}"
                             Header="#" />
                         <controls:DataGridTextColumn
+                            x:Uid="Vocabulary_TableName"
                             Width="Auto"
-                            Binding="{Binding name}"
-                            Header="Name" />
+                            Binding="{Binding name}" />
                         <controls:DataGridTextColumn
+                            x:Uid="Vocabulary_TableKanji"
                             Width="Auto"
-                            Binding="{Binding kanji}"
-                            Header="Kanji" />
+                            Binding="{Binding kanji}" />
                         <controls:DataGridTextColumn
+                            x:Uid="Vocabulary_TableMeaning"
                             Width="Auto"
-                            Binding="{Binding meaning}"
-                            Header="Meaning" />
+                            Binding="{Binding meaning}" />
                         <controls:DataGridTextColumn
+                            x:Uid="Vocabulary_TableMeaningEn"
                             Width="SizeToHeader"
-                            Binding="{Binding meaningEn}"
-                            Header="Meaning (En)" />
+                            Binding="{Binding meaningEn}" />
                         <controls:DataGridTextColumn
                             Width="SizeToHeader"
                             Binding="{Binding vocabularyId}"

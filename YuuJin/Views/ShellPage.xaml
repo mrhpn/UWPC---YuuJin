@@ -50,19 +50,16 @@
                 Icon="Font">
                 <winui:NavigationViewItem.MenuItems>
                     <winui:NavigationViewItem
-                        x:Uid="Shell_VocabularyAdd"
+                        x:Uid="Shell_Vocabulary_Add"
                         helpers:NavHelper.NavigateTo="views:VocabularyAddPage"
-                        Content="Add"
                         Icon="Add" />
                     <winui:NavigationViewItem
-                        x:Uid="Shell_VocabularyFavorites"
+                        x:Uid="Shell_Vocabulary_Favorites"
                         helpers:NavHelper.NavigateTo="views:VocabularyFavoritesPage"
-                        Content="Favorites"
                         Icon="Favorite" />
                     <winui:NavigationViewItem
-                        x:Uid="Shell_VocabularyPractice"
+                        x:Uid="Shell_Vocabulary_Practice"
                         helpers:NavHelper.NavigateTo="views:VocabularyPracticePage"
-                        Content="Practice"
                         Icon="Emoji" />
                 </winui:NavigationViewItem.MenuItems>
             </winui:NavigationViewItem>

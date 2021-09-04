@@ -27,11 +27,14 @@ namespace YuuJin.Views
         {
             Vocabulary selectedRow = (Vocabulary)DataGrid_Vocabulary.SelectedItem;
 
-            Panel_AnswerBox.Visibility = Visibility.Visible;
-            TextBlock_Vocabulary.Text = selectedRow.name;
-            TextBlock_Kanji.Text = selectedRow.kanji;
-            TextBlock_Meaning.Text = selectedRow.meaning;
-            TextBlock_MeaningEn.Text = selectedRow.meaningEn;
+            if (selectedRow != null)
+            {
+                Panel_AnswerBox.Visibility = Visibility.Visible;
+                TextBlock_Vocabulary.Text = selectedRow.name;
+                TextBlock_Kanji.Text = selectedRow.kanji;
+                TextBlock_Meaning.Text = selectedRow.meaning;
+                TextBlock_MeaningEn.Text = selectedRow.meaningEn;
+            }
         }
 
         private void SelectionChanged_UnitFrom(object sender, SelectionChangedEventArgs e)

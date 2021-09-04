@@ -40,6 +40,32 @@ namespace YuuJin.Database
             return entries;
         }
 
+        public List<Vocabulary> GetFavoriteVocabularies(string unit)
+        {
+            var entries = new List<Vocabulary>();
+
+            string dbpath = Path.Combine(ApplicationData.Current.LocalFolder.Path, "yuuJin.db");
+            using (SqliteConnection db = new SqliteConnection($"Filename={dbpath}"))
+            {
+                db.Open();
+
+                SqliteCommand selectCommand = new SqliteCommand($"SELECT * FROM vocabularies WHERE unit_id = {unit} AND is_favorite = 1", db);
+
+                SqliteDataReader query = selectCommand.ExecuteReader();
+
+                int displayNo = 1;
+                while (query.Read())
+                {
+                    entries.Add(new Vocabulary(displayNo, query.GetInt32(0), query.GetString(1), query.GetString(2), query.GetString(3), query.GetString(4), query.GetBoolean(5)));
+                    displayNo++;
+                }
+
+                db.Close();
+            }
+
+            return entries;
+        }
+
         public int ToggleFavorite(bool isFavorite, int vocabularyId)
         {
             int updated = 0;

@@ -134,5 +134,25 @@ namespace YuuJin.Database
 
             return added;
         }
+
+        public int getCountOfVocabulary(string checkUnit)
+        {
+            int count = 0;
+
+            string dbpath = Path.Combine(ApplicationData.Current.LocalFolder.Path, "yuuJin.db");
+            using (SqliteConnection db = new SqliteConnection($"Filename={dbpath}"))
+            {
+                db.Open();
+
+                SqliteCommand selectCommand = new SqliteCommand($"SELECT COUNT(*) FROM vocabularies WHERE unit_id = {checkUnit}", db);
+
+                count = Convert.ToInt32(selectCommand.ExecuteScalar());
+
+                db.Close();
+            }
+
+            return count;
+        }
+
     }
 }

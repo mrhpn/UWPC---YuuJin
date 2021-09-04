@@ -76,11 +76,13 @@
                             SelectionChanged="SelectionChanged_Unit" />
 
                         <Button
+                            x:Name="Button__Check"
                             Grid.Column="2"
                             VerticalAlignment="Bottom"
                             Background="GreenYellow"
                             Click="Button_Check"
-                            CornerRadius="5">
+                            CornerRadius="5"
+                            IsEnabled="False">
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock Margin="0,0,6,0" Text="Check" />
                                 <FontIcon
@@ -95,8 +97,7 @@
                     <TextBlock
                         x:Name="TextBlock_TotalVocabularyCount"
                         Grid.Row="1"
-                        Margin="20,0,10,0"
-                        FontStyle="Italic" />
+                        Margin="20,0,10,0" />
 
                     <StackPanel
                         Grid.Row="2"

@@ -78,13 +78,18 @@ namespace YuuJin.Views
             {
                 ComboBox_Unit.SelectedIndex = 0;
             }
+
+            Button__Check.IsEnabled = true;
         }
 
-        private async void Button_Check(object sender, RoutedEventArgs e)
+        private void Button_Check(object sender, RoutedEventArgs e)
         {
             string level = ((ComboBoxItem)ComboBox_Level.SelectedItem).Tag.ToString();
             string unit = ((ComboBoxItem)ComboBox_Unit.SelectedItem).Content.ToString();
             string checkUnit = $"{level}.{unit}";
+
+            int count = new VocabularyModel().getCountOfVocabulary(checkUnit);
+            TextBlock_TotalVocabularyCount.Text = $"Total vocabulary count in Level {level}, Unit {unit} is {count}.";
         }
 
         private async void Button_ImportExcel(object sender, RoutedEventArgs e)

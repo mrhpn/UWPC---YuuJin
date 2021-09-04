@@ -180,5 +180,56 @@ namespace YuuJin.Database
             return count;
         }
 
+        public List<Vocabulary> getPracticeVocabulary(string unitFrom, string unitTo)
+        {
+            var entries = new List<Vocabulary>();
+
+            string dbpath = Path.Combine(ApplicationData.Current.LocalFolder.Path, "yuuJin.db");
+            using (SqliteConnection db = new SqliteConnection($"Filename={dbpath}"))
+            {
+                db.Open();
+
+                SqliteCommand selectCommand = new SqliteCommand($"SELECT * FROM vocabularies WHERE unit_id BETWEEN {unitFrom} AND {unitTo}", db);
+
+                SqliteDataReader query = selectCommand.ExecuteReader();
+
+                int displayNo = 1;
+                while (query.Read())
+                {
+                    entries.Add(new Vocabulary(displayNo, query.GetInt32(0), query.GetString(1), query.GetString(2), query.GetString(3), query.GetString(4), query.GetBoolean(5)));
+                    displayNo++;
+                }
+
+                db.Close();
+            }
+
+            return entries;
+        }
+
+        public List<Vocabulary> getPracticeVocabularyFavorite(string unitFrom, string unitTo, bool favoriteStatus)
+        {
+            var entries = new List<Vocabulary>();
+
+            string dbpath = Path.Combine(ApplicationData.Current.LocalFolder.Path, "yuuJin.db");
+            using (SqliteConnection db = new SqliteConnection($"Filename={dbpath}"))
+            {
+                db.Open();
+
+                SqliteCommand selectCommand = new SqliteCommand($"SELECT * FROM vocabularies WHERE unit_id BETWEEN {unitFrom} AND {unitTo} AND is_favorite = {favoriteStatus}", db);
+
+                SqliteDataReader query = selectCommand.ExecuteReader();
+
+                int displayNo = 1;
+                while (query.Read())
+                {
+                    entries.Add(new Vocabulary(displayNo, query.GetInt32(0), query.GetString(1), query.GetString(2), query.GetString(3), query.GetString(4), query.GetBoolean(5)));
+                    displayNo++;
+                }
+
+                db.Close();
+            }
+
+            return entries;
+        }
     }
 }

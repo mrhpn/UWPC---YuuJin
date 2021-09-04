@@ -86,7 +86,7 @@ namespace YuuJin.Views
         {
             string level = ((ComboBoxItem)ComboBox_Level.SelectedItem).Tag.ToString();
             string unit = ((ComboBoxItem)ComboBox_Unit.SelectedItem).Content.ToString();
-            string checkUnit = $"{level}.{unit}";
+            string checkUnit = $"{level}{unit}";
 
             int count = new VocabularyModel().getCountOfVocabulary(checkUnit);
             TextBlock_TotalVocabularyCount.Text = $"Total vocabulary count in Level {level}, Unit {unit} is {count}.";

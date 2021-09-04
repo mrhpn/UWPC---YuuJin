@@ -79,7 +79,7 @@
                             x:Name="Button__Check"
                             Grid.Column="2"
                             VerticalAlignment="Bottom"
-                            Background="GreenYellow"
+                            Background="{StaticResource SystemAccentColor}"
                             Click="Button_Check"
                             CornerRadius="5"
                             IsEnabled="False">
@@ -135,7 +135,7 @@
 
                 <StackPanel
                     Grid.Row="2"
-                    Margin="20,30,20,50"
+                    Margin="20,20,20,50"
                     Orientation="Vertical">
                     <TextBlock Style="{StaticResource SubtitleTextBlockStyle}" Text="CSV Format" />
 
@@ -146,7 +146,7 @@
                         Source="/Assets/example_excel_format.png" />
 
                     <TextBlock
-                        Margin="0,30,20,10"
+                        Margin="0,20,20,10"
                         FontSize="20"
                         Text="Required Fields" />
                     <TextBlock Text="1.   Vocabulary in Hiragana/Katakana" />
@@ -156,11 +156,11 @@
                     <TextBlock Text="5.   Unit" />
 
                     <TextBlock
-                        Margin="0,30,20,10"
+                        Margin="0,20,20,10"
                         FontSize="20"
-                        Text="Note" />
+                        Text="Important Note" />
                     <TextBlock Text="-  Your actual data must start from row number line 2." />
-                    <TextBlock Text="-  Unit column is [level][unit]. Example: 5.1 for N5 and Lesson-1." />
+                    <TextBlock Text="-  Unit column is [level][unit]. Example: 31 for N3 and Lesson-1." />
                 </StackPanel>
             </Grid>
 

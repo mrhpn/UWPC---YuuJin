@@ -63,7 +63,7 @@ namespace YuuJin.Views
 
             string level = ((ComboBoxItem)ComboBox_Level.SelectedItem).Tag.ToString();
             string unit = ((ComboBoxItem)ComboBox_Unit.SelectedItem).Content.ToString();
-            var vocabularies = getVocabularies($"{level}.{unit}");
+            var vocabularies = getVocabularies($"{level}{unit}");
 
             foreach (Vocabulary vocabulary in vocabularies)
             {
@@ -130,7 +130,7 @@ namespace YuuJin.Views
             if (((ComboBoxItem)ComboBox_Unit.SelectedItem) != null)
             {
                 string unit = ((ComboBoxItem)ComboBox_Unit.SelectedItem).Content.ToString();
-                loadVocabularies($"{level}.{unit}");
+                loadVocabularies($"{level}{unit}");
             }
             else
             {
@@ -186,7 +186,7 @@ namespace YuuJin.Views
                     if (((ComboBoxItem)ComboBox_Unit.SelectedItem) != null)
                     {
                         string unit = ((ComboBoxItem)ComboBox_Unit.SelectedItem).Content.ToString();
-                        loadVocabularies($"{level}.{unit}");
+                        loadVocabularies($"{level}{unit}");
                     }
 
                     // TODO: select the updated row programmatically using vocabularyId
@@ -231,7 +231,7 @@ namespace YuuJin.Views
                 string meaningEn = Add_TextBox_Meaning_En.Text;
                 bool isFavorite = (bool)Add_CheckBox_Favorite.IsChecked;
 
-                Vocabulary newVocabulary = new Vocabulary(name, kanji, meaning, meaningEn, isFavorite, $"{level}.{unit}");
+                Vocabulary newVocabulary = new Vocabulary(name, kanji, meaning, meaningEn, isFavorite, $"{level}{unit}");
                 var added = new VocabularyModel().InsertVocabulary(newVocabulary);
 
                 if (added > 0)
@@ -239,7 +239,7 @@ namespace YuuJin.Views
                     Noti_Success.Show(2000);
 
                     // refresh the datagrid
-                    loadVocabularies($"{level}.{unit}");
+                    loadVocabularies($"{level}{unit}");
 
                     // TODO: select the added row programmatically using vocabularyId
                 }
@@ -294,7 +294,7 @@ namespace YuuJin.Views
                         if (((ComboBoxItem)ComboBox_Unit.SelectedItem) != null)
                         {
                             string unit = ((ComboBoxItem)ComboBox_Unit.SelectedItem).Content.ToString();
-                            loadVocabularies($"{level}.{unit}");
+                            loadVocabularies($"{level}{unit}");
                         }
 
                         // TODO: select the updated row programmatically using vocabularyId
@@ -331,7 +331,7 @@ namespace YuuJin.Views
                         if (((ComboBoxItem)ComboBox_Unit.SelectedItem) != null)
                         {
                             string unit = ((ComboBoxItem)ComboBox_Unit.SelectedItem).Content.ToString();
-                            loadVocabularies($"{level}.{unit}");
+                            loadVocabularies($"{level}{unit}");
                         }
                     }
                     else

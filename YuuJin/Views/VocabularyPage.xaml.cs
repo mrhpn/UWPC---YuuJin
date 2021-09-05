@@ -242,21 +242,24 @@ namespace YuuJin.Views
                 string meaningEn = Add_TextBox_Meaning_En.Text;
                 bool isFavorite = (bool)Add_CheckBox_Favorite.IsChecked;
 
-                Vocabulary newVocabulary = new Vocabulary(name, kanji, meaning, meaningEn, isFavorite, $"{level}{unit}");
-                var added = new VocabularyModel().InsertVocabulary(newVocabulary);
-
-                if (added > 0)
+                if (name != "" && meaning != "")
                 {
-                    Noti_Success.Show(2000);
+                    Vocabulary newVocabulary = new Vocabulary(name, kanji, meaning, meaningEn, isFavorite, $"{level}{unit}");
+                    var added = new VocabularyModel().InsertVocabulary(newVocabulary);
 
-                    // refresh the datagrid
-                    loadVocabularies($"{level}{unit}");
+                    if (added > 0)
+                    {
+                        Noti_Success.Show(2000);
 
-                    // TODO: select the added row programmatically using vocabularyId
-                }
-                else
-                {
-                    Noti_Error.Show(2000);
+                        // refresh the datagrid
+                        loadVocabularies($"{level}{unit}");
+
+                        // TODO: select the added row programmatically using vocabularyId
+                    }
+                    else
+                    {
+                        Noti_Error.Show(2000);
+                    }
                 }
             }
         }

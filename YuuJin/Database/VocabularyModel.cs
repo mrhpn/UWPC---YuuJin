@@ -94,7 +94,7 @@ namespace YuuJin.Database
             {
                 db.Open();
 
-                SqliteCommand selectCommand = new SqliteCommand($"UPDATE vocabularies SET name = '{vocabulary.name}', kanji = '{vocabulary.kanji}', meaning = '{vocabulary.kanji}', meaning_en = '{vocabulary.kanji}', is_favorite = {vocabulary.isFavorite} WHERE vocabulary_id = {vocabularyId}", db);
+                SqliteCommand selectCommand = new SqliteCommand($"UPDATE vocabularies SET name = '{vocabulary.name}', kanji = '{vocabulary.kanji}', meaning = '{vocabulary.meaning}', meaning_en = '{vocabulary.meaningEn}', is_favorite = {vocabulary.isFavorite} WHERE vocabulary_id = {vocabularyId}", db);
 
                 updated = selectCommand.ExecuteNonQuery();
 

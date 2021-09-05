@@ -11,6 +11,19 @@
     <Page.Resources>
         <SolidColorBrush x:Key="DataGridCellFocusVisualPrimaryBrush" Color="Transparent" />
         <SolidColorBrush x:Key="DataGridCellFocusVisualSecondaryBrush" Color="Transparent" />
+        <!--  DataTemplate for Favorite column.  -->
+        <DataTemplate x:Key="FavoriteTemplate">
+            <TextBlock
+                x:Name="Favorite"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                x:DefaultBindMode="TwoWay"
+                FontFamily="Segoe MDL2 Assets"
+                FontSize="15"
+                Foreground="black"
+                Text="&#xe735;"
+                Visibility="{Binding FavoriteIconVisibility}" />
+        </DataTemplate>
     </Page.Resources>
 
     <Grid x:Name="ContentArea" Margin="{StaticResource MediumLeftRightMargin}">
@@ -135,26 +148,11 @@
                 Margin="15,0,20,0"
                 Fill="#E4E4E4" />
 
+
             <StackPanel
                 Grid.Row="1"
                 Grid.Column="0"
                 Margin="15,20,0,30">
-
-                <StackPanel.Resources>
-                    <!--  DataTemplate for Favorite column.  -->
-                    <DataTemplate x:Key="FavoriteTemplate">
-                        <TextBlock
-                            x:Name="Favorite"
-                            HorizontalAlignment="Center"
-                            VerticalAlignment="Center"
-                            x:DefaultBindMode="TwoWay"
-                            FontFamily="Segoe MDL2 Assets"
-                            FontSize="15"
-                            Foreground="black"
-                            Text="&#xe735;"
-                            Visibility="{Binding FavoriteIconVisibility}" />
-                    </DataTemplate>
-                </StackPanel.Resources>
 
                 <StackPanel Orientation="Horizontal">
                     <TextBlock x:Uid="TextBlock_TotalRows" />
@@ -162,53 +160,56 @@
                 </StackPanel>
 
                 <!--  Data Grid  -->
-                <controls:DataGrid
-                    x:Name="DataGrid_Vocabulary"
-                    Grid.Row="1"
-                    Margin="0,20,0,0"
-                    AutoGenerateColumns="False"
-                    CanUserReorderColumns="True"
-                    CanUserResizeColumns="True"
-                    CanUserSortColumns="True"
-                    FrozenColumnCount="2"
-                    GridLinesVisibility="Horizontal"
-                    HeadersVisibility="Column"
-                    IsReadOnly="True"
-                    MaxColumnWidth="400"
-                    MinColumnWidth="70"
-                    SelectionChanged="SelectionChanged_DataGrid">
-                    <controls:DataGrid.Columns>
-                        <controls:DataGridTextColumn
-                            Width="Auto"
-                            Binding="{Binding displayNo}"
-                            Header="#" />
-                        <controls:DataGridTextColumn
-                            x:Uid="Vocabulary_TableName"
-                            Width="Auto"
-                            Binding="{Binding name}" />
-                        <controls:DataGridTextColumn
-                            x:Uid="Vocabulary_TableKanji"
-                            Width="Auto"
-                            Binding="{Binding kanji}" />
-                        <controls:DataGridTextColumn
-                            x:Uid="Vocabulary_TableMeaning"
-                            Width="Auto"
-                            Binding="{Binding meaning}" />
-                        <controls:DataGridTextColumn
-                            x:Uid="Vocabulary_TableMeaningEn"
-                            Width="SizeToHeader"
-                            Binding="{Binding meaningEn}" />
-                        <controls:DataGridTemplateColumn
-                            x:Uid="Vocabulary_TableFavorite"
-                            Width="SizeToHeader"
-                            CellTemplate="{StaticResource FavoriteTemplate}" />
-                        <controls:DataGridTextColumn Binding="{Binding isFavorite}" Visibility="Collapsed" />
-                        <controls:DataGridTextColumn
-                            Width="SizeToHeader"
-                            Binding="{Binding vocabularyId}"
-                            Visibility="Collapsed" />
-                    </controls:DataGrid.Columns>
-                </controls:DataGrid>
+                <Grid>
+                    <controls:DataGrid
+                        x:Name="DataGrid_Vocabulary"
+                        Grid.Row="1"
+                        MaxHeight="500"
+                        Margin="0,20,0,0"
+                        AutoGenerateColumns="False"
+                        CanUserReorderColumns="True"
+                        CanUserResizeColumns="True"
+                        CanUserSortColumns="True"
+                        FrozenColumnCount="2"
+                        GridLinesVisibility="Horizontal"
+                        HeadersVisibility="Column"
+                        IsReadOnly="True"
+                        MaxColumnWidth="400"
+                        MinColumnWidth="70"
+                        SelectionChanged="SelectionChanged_DataGrid">
+                        <controls:DataGrid.Columns>
+                            <controls:DataGridTextColumn
+                                Width="Auto"
+                                Binding="{Binding displayNo}"
+                                Header="#" />
+                            <controls:DataGridTextColumn
+                                x:Uid="Vocabulary_TableName"
+                                Width="Auto"
+                                Binding="{Binding name}" />
+                            <controls:DataGridTextColumn
+                                x:Uid="Vocabulary_TableKanji"
+                                Width="Auto"
+                                Binding="{Binding kanji}" />
+                            <controls:DataGridTextColumn
+                                x:Uid="Vocabulary_TableMeaning"
+                                Width="Auto"
+                                Binding="{Binding meaning}" />
+                            <controls:DataGridTextColumn
+                                x:Uid="Vocabulary_TableMeaningEn"
+                                Width="SizeToHeader"
+                                Binding="{Binding meaningEn}" />
+                            <controls:DataGridTemplateColumn
+                                x:Uid="Vocabulary_TableFavorite"
+                                Width="SizeToHeader"
+                                CellTemplate="{StaticResource FavoriteTemplate}" />
+                            <controls:DataGridTextColumn Binding="{Binding isFavorite}" Visibility="Collapsed" />
+                            <controls:DataGridTextColumn
+                                Width="SizeToHeader"
+                                Binding="{Binding vocabularyId}"
+                                Visibility="Collapsed" />
+                        </controls:DataGrid.Columns>
+                    </controls:DataGrid>
+                </Grid>
                 <!--  End data grid  -->
             </StackPanel>
         </Grid>

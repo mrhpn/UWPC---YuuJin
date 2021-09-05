@@ -18,19 +18,27 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
-        <StackPanel
-            Grid.Row="0"
-            Margin="15,0,7,0"
-            Orientation="Horizontal">
+        <Grid Grid.Row="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
             <ComboBox
                 x:Name="ComboBox_PracticeType"
                 x:Uid="Practice_PracticeType"
+                Grid.Row="0"
+                Grid.Column="0"
                 Width="155"
-                Margin="0,0,20,0"
+                Margin="15,0,0,0"
                 BorderThickness="0.5"
                 CornerRadius="6"
                 PlaceholderText="All">
@@ -39,72 +47,86 @@
                 <ComboBoxItem x:Uid="PracticeType_3" Tag="3" />
             </ComboBox>
 
-            <ComboBox
-                x:Name="ComboBox_Level"
-                x:Uid="Vocabulary_Level"
-                Width="90"
-                Margin="0,0,7,0"
-                BorderThickness="0.5"
-                CornerRadius="6"
-                PlaceholderText="N3"
-                SelectionChanged="SelectionChanged_Level">
-                <ComboBoxItem Content="N2" Tag="2" />
-                <ComboBoxItem Content="N3" Tag="3" />
-                <ComboBoxItem Content="N4" Tag="4" />
-                <ComboBoxItem Content="N5" Tag="5" />
-                <ComboBoxItem Content="Free" Tag="6" />
-            </ComboBox>
-            <ComboBox
-                x:Name="ComboBox_Unit"
-                x:Uid="Practice_From"
+            <StackPanel
+                x:Name="Panel_Level"
+                Grid.Row="0"
                 Grid.Column="1"
-                Width="90"
-                Margin="0,0,7,0"
-                BorderThickness="0.5"
-                CornerRadius="6"
-                SelectionChanged="SelectionChanged_UnitFrom" />
-            <ComboBox
-                x:Name="ComboBox_UnitTo"
-                x:Uid="Practice_To"
-                Grid.Column="1"
-                Width="90"
-                Margin="0,0,7,0"
-                BorderThickness="0.5"
-                CornerRadius="6"
-                IsEnabled="False"
-                SelectionChanged="SelectionChanged_UnitTo" />
+                Margin="30,0,7,0"
+                Orientation="Horizontal">
+                <ComboBox
+                    x:Name="ComboBox_Level"
+                    x:Uid="Vocabulary_Level"
+                    Width="90"
+                    Margin="0,0,7,0"
+                    BorderThickness="0.5"
+                    CornerRadius="6"
+                    PlaceholderText="N3"
+                    SelectionChanged="SelectionChanged_Level">
+                    <ComboBoxItem Content="N2" Tag="2" />
+                    <ComboBoxItem Content="N3" Tag="3" />
+                    <ComboBoxItem Content="N4" Tag="4" />
+                    <ComboBoxItem Content="N5" Tag="5" />
+                    <ComboBoxItem Content="Free" Tag="6" />
+                </ComboBox>
+                <ComboBox
+                    x:Name="ComboBox_Unit"
+                    x:Uid="Practice_From"
+                    Grid.Column="1"
+                    Width="90"
+                    Margin="0,0,7,0"
+                    BorderThickness="0.5"
+                    CornerRadius="6"
+                    SelectionChanged="SelectionChanged_UnitFrom" />
+                <ComboBox
+                    x:Name="ComboBox_UnitTo"
+                    x:Uid="Practice_To"
+                    Grid.Column="1"
+                    Width="90"
+                    Margin="0,0,7,0"
+                    BorderThickness="0.5"
+                    CornerRadius="6"
+                    IsEnabled="False"
+                    SelectionChanged="SelectionChanged_UnitTo" />
+            </StackPanel>
 
-            <ComboBox
-                x:Name="ComboBox_WantToSee"
-                x:Uid="Practice_WantToSee"
-                Width="Auto"
-                Margin="20,0,7,0"
-                BorderThickness="0.5"
-                CornerRadius="6">
-                <ComboBoxItem x:Uid="WantToSee_Vocabulary" Tag="1" />
-                <ComboBoxItem x:Uid="WantToSee_Meaning" Tag="2" />
-            </ComboBox>
+            <StackPanel
+                x:Name="Panel_Button"
+                Grid.Row="0"
+                Grid.Column="2"
+                Margin="20,0,0,0"
+                Orientation="Horizontal">
+                <ComboBox
+                    x:Name="ComboBox_WantToSee"
+                    x:Uid="Practice_WantToSee"
+                    Width="Auto"
+                    Margin="0,0,7,0"
+                    BorderThickness="0.5"
+                    CornerRadius="6">
+                    <ComboBoxItem x:Uid="WantToSee_Vocabulary" Tag="1" />
+                    <ComboBoxItem x:Uid="WantToSee_Meaning" Tag="2" />
+                </ComboBox>
 
-            <Button
-                x:Name="Button__Start"
-                Width="100"
-                Margin="20,0,7,0"
-                VerticalAlignment="Bottom"
-                Background="{StaticResource SystemAccentColor}"
-                Click="Button_Start"
-                CornerRadius="5"
-                IsEnabled="False">
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock x:Uid="Practice_Start" Margin="0,0,6,0" />
-                    <FontIcon
-                        FontFamily="Segoe MDL2 Assets"
-                        FontSize="15"
-                        Glyph="&#xe76c;" />
-                </StackPanel>
-            </Button>
-        </StackPanel>
+                <Button
+                    x:Name="Button__Start"
+                    Width="100"
+                    Margin="20,0,7,0"
+                    VerticalAlignment="Bottom"
+                    Background="{StaticResource SystemAccentColor}"
+                    Click="Button_Start"
+                    CornerRadius="5"
+                    IsEnabled="False">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock x:Uid="Practice_Start" Margin="0,0,6,0" />
+                        <FontIcon
+                            FontFamily="Segoe MDL2 Assets"
+                            FontSize="15"
+                            Glyph="&#xe76c;" />
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+        </Grid>
 
-        <StackPanel Grid.Row="3" Margin="15,20,0,30">
+        <StackPanel Grid.Row="1" Margin="15,20,0,30">
 
             <StackPanel Orientation="Horizontal">
                 <TextBlock x:Uid="TextBlock_TotalRows" />
@@ -167,28 +189,92 @@
                 <TextBlock
                     x:Name="TextBlock_Vocabulary"
                     Margin="0,0,10,0"
-                    VerticalAlignment="Center"
-                    Text="そせん" />
+                    VerticalAlignment="Center" />
                 <AppBarSeparator />
                 <TextBlock
                     x:Name="TextBlock_Kanji"
                     Margin="0,0,10,0"
-                    VerticalAlignment="Center"
-                    Text="祖先" />
+                    VerticalAlignment="Center" />
                 <AppBarSeparator />
                 <TextBlock
                     x:Name="TextBlock_Meaning"
                     Margin="0,0,10,0"
-                    VerticalAlignment="Center"
-                    Text="Grand-" />
+                    VerticalAlignment="Center" />
                 <AppBarSeparator />
                 <TextBlock
                     x:Name="TextBlock_MeaningEn"
                     Margin="0,0,10,0"
-                    VerticalAlignment="Center"
-                    Text="ဘိုးဘေးဘီဘင်" />
+                    VerticalAlignment="Center" />
             </StackPanel>
         </StackPanel>
 
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+
+                <!--  Triggered when the window width >=490 effective pixels.  -->
+                <VisualState x:Name="VisualState_Small">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="490" />
+                    </VisualState.StateTriggers>
+
+                    <VisualState.Setters>
+                        <!--  Repositioning search box  -->
+                        <Setter Target="Panel_Level.(Grid.Row)" Value="1" />
+                        <Setter Target="Panel_Level.(Grid.Column)" Value="0" />
+                        <Setter Target="Panel_Level.Margin" Value="15,15,0,0" />
+
+                        <!--  Resizing search box width  -->
+                        <Setter Target="Panel_Button.(Grid.Row)" Value="2" />
+                        <Setter Target="Panel_Button.(Grid.Column)" Value="0" />
+                        <Setter Target="Panel_Button.Margin" Value="15,15,0,0" />
+
+                        <!--  Reassigning frezz count column in data grid  -->
+                        <Setter Target="DataGrid_Vocabulary.FrozenColumnCount" Value="2" />
+                    </VisualState.Setters>
+                </VisualState>
+
+                <!--  Triggered when the window width >=820 effective pixels.  -->
+                <VisualState x:Name="VisualState_Medium">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="600" />
+                    </VisualState.StateTriggers>
+
+                    <VisualState.Setters>
+                        <!--  Repositioning search box  -->
+                        <Setter Target="Panel_Level.(Grid.Row)" Value="0" />
+                        <Setter Target="Panel_Level.(Grid.Column)" Value="1" />
+                        <Setter Target="Panel_Level.Margin" Value="-15,0,0,0" />
+
+                        <!--  Resizing search box width  -->
+                        <Setter Target="Panel_Button.(Grid.Row)" Value="1" />
+                        <Setter Target="Panel_Button.(Grid.Column)" Value="0" />
+                        <Setter Target="Panel_Button.Margin" Value="15,15,0,0" />
+
+                        <!--  Reassigning frezz count column in data grid  -->
+                        <Setter Target="DataGrid_Vocabulary.FrozenColumnCount" Value="2" />
+                    </VisualState.Setters>
+                </VisualState>
+
+                <!--  Triggered when the window width >=820 effective pixels.  -->
+                <VisualState x:Name="VisualState_Large">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="820" />
+                    </VisualState.StateTriggers>
+
+                    <VisualState.Setters>
+                        <!--  Repositioning search box  -->
+                        <Setter Target="Panel_Level.(Grid.Row)" Value="0" />
+                        <Setter Target="Panel_Level.(Grid.Column)" Value="1" />
+
+                        <!--  Resizing search box width  -->
+                        <Setter Target="Panel_Button.(Grid.Row)" Value="0" />
+                        <Setter Target="Panel_Button.(Grid.Column)" Value="2" />
+
+                        <!--  Reassigning frezz count column in data grid  -->
+                        <Setter Target="DataGrid_Vocabulary.FrozenColumnCount" Value="2" />
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
     </Grid>
 </Page>

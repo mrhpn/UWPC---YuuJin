@@ -189,7 +189,7 @@ namespace YuuJin.Database
             {
                 db.Open();
 
-                SqliteCommand selectCommand = new SqliteCommand($"SELECT * FROM vocabularies WHERE unit_id BETWEEN {unitFrom} AND {unitTo}", db);
+                SqliteCommand selectCommand = new SqliteCommand($"SELECT * FROM vocabularies WHERE unit_id BETWEEN {unitFrom} AND {unitTo} ORDER BY RANDOM()", db);
 
                 SqliteDataReader query = selectCommand.ExecuteReader();
 

@@ -20,7 +20,7 @@
             BackgroundSource="Backdrop"
             BlurAmount="10"
             TintColor="{StaticResource SystemAccentColor}"
-            TintOpacity="0.3" />
+            TintOpacity="0.35" />
         <Thickness x:Key="NavigationViewHeaderMargin">25,40,0,20</Thickness>
     </Page.Resources>
 

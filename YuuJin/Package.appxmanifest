@@ -9,14 +9,14 @@
 
   <Identity
     Name="A3978DFB-3D7B-4611-BC32-5D80E7D09751"
-    Publisher="CN=GIC"
-    Version="1.0.0.0" />
+    Publisher="CN=Htet Phyo Naing"
+    Version="1.0.1.0" />
 
   <mp:PhoneIdentity PhoneProductId="A3978DFB-3D7B-4611-BC32-5D80E7D09751" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
   <Properties>
     <DisplayName>YuuJin</DisplayName>
-    <PublisherDisplayName>GIC</PublisherDisplayName>
+    <PublisherDisplayName>Htet Phyo Naing</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
 
@@ -38,7 +38,7 @@
         Square44x44Logo="Assets\Square44x44Logo.png"
         Description="ms-resource:AppDescription"
         BackgroundColor="transparent">
-        <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png"/>
+        <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png" Square71x71Logo="Assets\SmallTile.png" Square310x310Logo="Assets\LargeTile.png"/>
         <uap:SplashScreen Image="Assets\SplashScreen.png" />
       </uap:VisualElements>
 

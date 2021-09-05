@@ -375,4 +375,7 @@
   <data name="Voca_ErrorMsg_Required.Text" xml:space="preserve">
     <value>Name and Meaning fields are required</value>
   </data>
+  <data name="Language.Text" xml:space="preserve">
+    <value>Language</value>
+  </data>
 </root>

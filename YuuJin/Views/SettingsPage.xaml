@@ -5,6 +5,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:helper="using:YuuJin.Helpers"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
     xmlns:xaml="using:Windows.UI.Xaml"
     Style="{StaticResource PageStyle}"
     mc:Ignorable="d">
@@ -51,9 +52,29 @@
                 </StackPanel>
             </StackPanel>
 
+
+            <StackPanel Margin="{StaticResource XSmallTopMargin}">
+                <TextBlock
+                    x:Uid="Language"
+                    Margin="0,10,0,0"
+                    Style="{ThemeResource SubtitleTextBlockStyle}" />
+                <ComboBox
+                    x:Name="ComboBox_Language"
+                    Width="Auto"
+                    Margin="0,10,0,0"
+                    BorderThickness="0.5"
+                    CornerRadius="5"
+                    PlaceholderText="English"
+                    SelectionChanged="SelectionChanged_Language">
+                    <ComboBoxItem Content="English" Tag="1" />
+                    <ComboBoxItem Content="日本語" Tag="2" />
+                </ComboBox>
+            </StackPanel>
+
+
             <TextBlock
                 x:Uid="Settings_About"
-                Margin="0,10,0,0"
+                Margin="0,30,0,0"
                 Style="{ThemeResource SubtitleTextBlockStyle}" />
 
             <StackPanel Margin="{StaticResource XSmallTopMargin}">
@@ -68,7 +89,7 @@
 
             <TextBlock
                 x:Uid="Settings_Contact"
-                Margin="{StaticResource XSmallTopMargin}"
+                Margin="0,20,0,0"
                 Style="{ThemeResource SubtitleTextBlockStyle}" />
             <TextBlock
                 x:Uid="Settings_ContactDescription"

@@ -4,6 +4,9 @@ using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 
 using Windows.ApplicationModel;
+using Windows.ApplicationModel.Core;
+using Windows.Globalization;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
@@ -38,6 +41,19 @@ namespace YuuJin.Views
         public SettingsPage()
         {
             InitializeComponent();
+
+            FrameworkElement window = (FrameworkElement)Window.Current.Content;
+            string lang = window.Language;
+
+            if ("ja".Equals(lang))
+            {
+                ComboBox_Language.SelectedItem = "日本語";
+            }
+            else
+            {
+                ComboBox_Language.SelectedItem = "English";
+            }
+
         }
 
         protected override async void OnNavigatedTo(NavigationEventArgs e)
@@ -85,5 +101,39 @@ namespace YuuJin.Views
         }
 
         private void OnPropertyChanged(string propertyName) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+
+        private async void SelectionChanged_Language(object sender, SelectionChangedEventArgs e)
+        {
+            FrameworkElement window = (FrameworkElement)Window.Current.Content;
+
+            string lang = ((ComboBoxItem)ComboBox_Language.SelectedItem).Tag.ToString();
+
+            if (lang == "1")
+            {
+                ApplicationLanguages.PrimaryLanguageOverride = "en-us";
+                window.Language = "en-us";
+                /*Frame.Navigate(this.GetType());
+                ComboBox_Language.SelectedIndex = 0;*/
+            }
+            else if (lang == "2")
+            {
+                ApplicationLanguages.PrimaryLanguageOverride = "ja-jp";
+                window.Language = "ja-jp";
+                /*Frame.Navigate(this.GetType());
+                ComboBox_Language.SelectedIndex = 1;*/
+            }
+
+            var result = await CoreApplication.RequestRestartAsync("Application Restart Programmatically ");
+
+            if (result == AppRestartFailureReason.NotInForeground ||
+                result == AppRestartFailureReason.RestartPending ||
+                result == AppRestartFailureReason.Other)
+            {
+                var msgBox = new MessageDialog("Restart Failed", result.ToString());
+                await msgBox.ShowAsync();
+            }
+
+
+        }
     }
 }

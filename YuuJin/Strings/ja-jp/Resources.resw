@@ -376,4 +376,7 @@
   <data name="Voca_ErrorMsg_Required.Text" xml:space="preserve">
     <value>語彙や意味は必要です。</value>
   </data>
+  <data name="Language.Text" xml:space="preserve">
+    <value>言語</value>
+  </data>
 </root>

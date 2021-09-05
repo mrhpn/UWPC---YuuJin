@@ -306,4 +306,7 @@
   <data name="WantToSee_Vocabulary.Content" xml:space="preserve">
     <value>Vocabulary</value>
   </data>
+  <data name="Vocabulary_Search.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Searchable Fields: Vocabulary and Meaning</value>
+  </data>
 </root>

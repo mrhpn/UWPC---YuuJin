@@ -8,6 +8,11 @@
     Style="{StaticResource PageStyle}"
     mc:Ignorable="d">
 
+    <Page.Resources>
+        <SolidColorBrush x:Key="DataGridCellFocusVisualPrimaryBrush" Color="Transparent" />
+        <SolidColorBrush x:Key="DataGridCellFocusVisualSecondaryBrush" Color="Transparent" />
+    </Page.Resources>
+
     <Grid x:Name="ContentArea" Margin="{StaticResource MediumLeftRightMargin}">
         <Grid>
             <Grid.RowDefinitions>
@@ -145,7 +150,7 @@
                             x:DefaultBindMode="TwoWay"
                             FontFamily="Segoe MDL2 Assets"
                             FontSize="15"
-                            Foreground="DeepPink"
+                            Foreground="black"
                             Text="&#xe735;"
                             Visibility="{Binding FavoriteIconVisibility}" />
                     </DataTemplate>

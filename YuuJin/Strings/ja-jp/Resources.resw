@@ -134,11 +134,11 @@
     <comment>Navigation view item name for Kanji</comment>
   </data>
   <data name="Settings_Theme.Text" xml:space="preserve">
-    <value>テーマを選択</value>
+    <value>テーマを選択する</value>
     <comment>Choose theme text for Settings</comment>
   </data>
   <data name="Settings_Theme_Dark.Content" xml:space="preserve">
-    <value>暗い</value>
+    <value>ダーク</value>
     <comment>Dark theme text for Settings</comment>
   </data>
   <data name="Settings_Theme_Default.Content" xml:space="preserve">
@@ -146,7 +146,7 @@
     <comment>Windows default theme text for Settings</comment>
   </data>
   <data name="Settings_Theme_Light.Content" xml:space="preserve">
-    <value>光</value>
+    <value>ライト</value>
     <comment>Light theme text for Settings</comment>
   </data>
   <data name="Settings_About.Text" xml:space="preserve">
@@ -281,7 +281,7 @@
     <value>印刷</value>
   </data>
   <data name="Vocabulary_Search.PlaceholderText" xml:space="preserve">
-    <value>検索</value>
+    <value>探す</value>
   </data>
   <data name="Vocabulary_TableFavorite.Header" xml:space="preserve">
     <value>お気に入り</value>
@@ -306,5 +306,8 @@
   </data>
   <data name="WantToSee_Vocabulary.Content" xml:space="preserve">
     <value>語彙</value>
+  </data>
+  <data name="Vocabulary_Search.ToolTipService.ToolTip" xml:space="preserve">
+    <value>検索可能なデータ:  語彙や漢字</value>
   </data>
 </root>

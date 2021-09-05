@@ -244,11 +244,11 @@
                                 Symbol="Important" />
                         </Grid>
                         <StackPanel Grid.Column="1" Margin="10,0,0,0">
-                            <TextBlock FontFamily="Pyidaungsu" Text="Information" />
+                            <TextBlock x:Uid="Info_Noti_Title" />
                             <TextBlock
+                                x:Uid="Info_Noti_Body"
                                 Opacity="0.7"
-                                Style="{ThemeResource BodyTextBlockStyle}"
-                                Text="Select the table row first." />
+                                Style="{ThemeResource BodyTextBlockStyle}" />
                         </StackPanel>
                     </Grid>
                 </DataTemplate>
@@ -287,11 +287,11 @@
                                 Symbol="Accept" />
                         </Grid>
                         <StackPanel Grid.Column="1" Margin="10,0,0,0">
-                            <TextBlock Text="Success!" />
+                            <TextBlock x:Uid="Success_Noti_Title" />
                             <TextBlock
+                                x:Uid="Success_Noti_Body"
                                 Opacity="0.7"
-                                Style="{ThemeResource BodyTextBlockStyle}"
-                                Text="The operation was successful." />
+                                Style="{ThemeResource BodyTextBlockStyle}" />
                         </StackPanel>
                     </Grid>
                 </DataTemplate>
@@ -330,8 +330,9 @@
                                 Symbol="Cancel" />
                         </Grid>
                         <StackPanel Grid.Column="1" Margin="10,0,0,0">
-                            <TextBlock Text="Error" />
+                            <TextBlock x:Uid="Error_Noti_Title" />
                             <TextBlock
+                                x:Uid="Error_Noti_Body"
                                 Opacity="0.7"
                                 Style="{ThemeResource BodyTextBlockStyle}"
                                 Text="The operation was unsuccessful!" />
@@ -347,40 +348,74 @@
             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
             x:Name="ContentDialog_AddVocabulary"
-            Title="Create vocabulary"
+            x:Uid="Vocabulary_AddDialog_Title"
             Width="Auto"
             Height="Auto"
-            CloseButtonText="Cancel"
-            DefaultButton="Primary"
-            PrimaryButtonText="Add">
+            DefaultButton="Primary">
 
             <StackPanel Orientation="Vertical">
 
-                <TextBlock x:Name="Add_TextBox_Description" Margin="0,10,0,0" />
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock
+                        x:Name="Add_TextBox_Description"
+                        x:Uid="Add_TextBox_Description"
+                        VerticalAlignment="Center"
+                        Foreground="Gray" />
+                    <TextBlock
+                        x:Name="Add_TextBlock_Level"
+                        x:Uid="Add_TextBlock_Level"
+                        VerticalAlignment="Center"
+                        Foreground="Gray" />
+                    <TextBlock
+                        x:Name="Add_TextBlock_LevelValue"
+                        Margin="5,0,0,0"
+                        VerticalAlignment="Center"
+                        Foreground="Gray" />
+                    <TextBlock
+                        x:Name="Add_TextBlock_Unit"
+                        x:Uid="Add_TextBlock_Unit"
+                        VerticalAlignment="Center"
+                        Foreground="Gray" />
+                    <TextBlock
+                        x:Name="Add_TextBlock_UnitValue"
+                        Margin="5,0,0,0"
+                        VerticalAlignment="Center"
+                        Foreground="Gray" />
+                    <TextBlock
+                        x:Name="Add_TextBlock_Free"
+                        VerticalAlignment="Center"
+                        Foreground="Gray"
+                        Text="Free" />
+                </StackPanel>
+
                 <TextBox
                     x:Name="Add_TextBox_Name"
+                    x:Uid="Vocabulary_TableName"
                     Margin="0,10,0,0"
                     CornerRadius="5,5,5,5"
                     Header="Name" />
                 <TextBox
                     x:Name="Add_TextBox_Kanji"
+                    x:Uid="Vocabulary_TableKanji"
                     Margin="0,10,0,0"
                     CornerRadius="5,5,5,5"
                     Header="Kanji" />
                 <TextBox
                     x:Name="Add_TextBox_Meaning"
+                    x:Uid="Vocabulary_TableMeaning"
                     Margin="0,10,0,0"
                     CornerRadius="5,5,5,5"
                     Header="Meaning" />
                 <TextBox
                     x:Name="Add_TextBox_Meaning_En"
+                    x:Uid="Vocabulary_TableMeaningEn"
                     Margin="0,10,0,0"
                     CornerRadius="5,5,5,5"
                     Header="Meaning (En)" />
                 <CheckBox
                     x:Name="Add_CheckBox_Favorite"
-                    Margin="0,10,0,0"
-                    Content="Mark as favorite" />
+                    x:Uid="ContentDialog_Add_MarkFavorite"
+                    Margin="0,10,0,0" />
             </StackPanel>
 
         </ContentDialog>
@@ -391,38 +426,36 @@
             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
             x:Name="ContentDialog_UpdateVocabulary"
-            Title="Update vocabulary"
+            x:Uid="Vocabulary_EditDialog_Title"
             Width="Auto"
             Height="Auto"
-            CloseButtonText="Cancel"
-            DefaultButton="Primary"
-            PrimaryButtonText="Update">
+            DefaultButton="Primary">
 
             <StackPanel Orientation="Vertical">
                 <TextBox
                     x:Name="TextBox_Name"
+                    x:Uid="Vocabulary_TableName"
                     Margin="0,10,0,0"
-                    CornerRadius="5,5,5,5"
-                    Header="Name" />
+                    CornerRadius="5,5,5,5" />
                 <TextBox
                     x:Name="TextBox_Kanji"
+                    x:Uid="Vocabulary_TableKanji"
                     Margin="0,10,0,0"
-                    CornerRadius="5,5,5,5"
-                    Header="Kanji" />
+                    CornerRadius="5,5,5,5" />
                 <TextBox
                     x:Name="TextBox_Meaning"
+                    x:Uid="Vocabulary_TableMeaning"
                     Margin="0,10,0,0"
-                    CornerRadius="5,5,5,5"
-                    Header="Meaning" />
+                    CornerRadius="5,5,5,5" />
                 <TextBox
                     x:Name="TextBox_Meaning_En"
+                    x:Uid="Vocabulary_TableMeaningEn"
                     Margin="0,10,0,0"
-                    CornerRadius="5,5,5,5"
-                    Header="Meaning (En)" />
+                    CornerRadius="5,5,5,5" />
                 <CheckBox
                     x:Name="CheckBox_Favorite"
-                    Margin="0,10,0,0"
-                    Content="Mark as favorite" />
+                    x:Uid="ContentDialog_Add_MarkFavorite"
+                    Margin="0,10,0,0" />
             </StackPanel>
 
         </ContentDialog>
@@ -433,20 +466,15 @@
             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
             x:Name="ContentDialog_DeleteVocabulary"
+            x:Uid="Vocabulary_DeleteDialog"
             Title="Are you sure to delete?"
             MaxWidth="200"
             CloseButtonText="Cancel"
             DefaultButton="Primary"
             PrimaryButtonText="Delete">
             <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-                <RichTextBlock>
-                    <Paragraph
-                        CharacterSpacing="10"
-                        FontFamily="Pyidaungsu"
-                        Foreground="Red">
-                        The selected data will be deleted forever!<LineBreak />
-                        The data associated with it also be deleted. You cannot get it back.</Paragraph>
-                </RichTextBlock>
+                <TextBlock x:Uid="Delete_Warning_Text1" Foreground="Red" />
+                <TextBlock x:Uid="Delete_Warning_Text2" Foreground="Red" />
             </StackPanel>
         </ContentDialog>
         <!--  End Delete Content Dialog  -->

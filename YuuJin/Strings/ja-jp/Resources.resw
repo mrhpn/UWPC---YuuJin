@@ -310,4 +310,67 @@
   <data name="Vocabulary_Search.ToolTipService.ToolTip" xml:space="preserve">
     <value>検索可能なデータ:  語彙や漢字</value>
   </data>
+  <data name="Add_TextBlock_Level.Text" xml:space="preserve">
+    <value>レベル</value>
+  </data>
+  <data name="Add_TextBlock_Unit.Text" xml:space="preserve">
+    <value>, ユニット</value>
+  </data>
+  <data name="Add_TextBox_Description.Text" xml:space="preserve">
+    <value>語彙を追加しているのはー</value>
+  </data>
+  <data name="ContentDialog_Add_MarkFavorite.Content" xml:space="preserve">
+    <value>お気に入りとしてマーク</value>
+  </data>
+  <data name="Delete_Warning_Text1.Text" xml:space="preserve">
+    <value>選択したデータは完全に削除されます！</value>
+  </data>
+  <data name="Delete_Warning_Text2.Text" xml:space="preserve">
+    <value>それに関連付けられているデータも削除されます。あなたはそれを取り戻すことはできません。</value>
+  </data>
+  <data name="Error_Noti_Body.Text" xml:space="preserve">
+    <value>操作は失敗しました。</value>
+  </data>
+  <data name="Error_Noti_Title.Text" xml:space="preserve">
+    <value>エラー</value>
+  </data>
+  <data name="Info_Noti_Body.Text" xml:space="preserve">
+    <value>最初にテーブルの行を選択します。</value>
+  </data>
+  <data name="Info_Noti_Title.Text" xml:space="preserve">
+    <value>情報</value>
+  </data>
+  <data name="Success_Noti_Body.Text" xml:space="preserve">
+    <value>操作は成功しました。</value>
+  </data>
+  <data name="Success_Noti_Title.Text" xml:space="preserve">
+    <value>成功!</value>
+  </data>
+  <data name="Vocabulary_AddDialog_Title.CloseButtonText" xml:space="preserve">
+    <value>キャンセルする</value>
+  </data>
+  <data name="Vocabulary_AddDialog_Title.PrimaryButtonText" xml:space="preserve">
+    <value>作成する</value>
+  </data>
+  <data name="Vocabulary_AddDialog_Title.Title" xml:space="preserve">
+    <value>語彙を作成する</value>
+  </data>
+  <data name="Vocabulary_DeleteDialog.CloseButtonText" xml:space="preserve">
+    <value>キャンセルする</value>
+  </data>
+  <data name="Vocabulary_DeleteDialog.PrimaryButtonText" xml:space="preserve">
+    <value>消去する</value>
+  </data>
+  <data name="Vocabulary_DeleteDialog.Title" xml:space="preserve">
+    <value>削除してもよろしいですか？</value>
+  </data>
+  <data name="Vocabulary_EditDialog_Title.CloseButtonText" xml:space="preserve">
+    <value>キャンセルする</value>
+  </data>
+  <data name="Vocabulary_EditDialog_Title.PrimaryButtonText" xml:space="preserve">
+    <value>更新する</value>
+  </data>
+  <data name="Vocabulary_EditDialog_Title.Title" xml:space="preserve">
+    <value>語彙を更新する</value>
+  </data>
 </root>

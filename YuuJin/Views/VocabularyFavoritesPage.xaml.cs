@@ -30,10 +30,10 @@ namespace YuuJin.Views
         {
             this.InitializeComponent();
 
-            ComboBox_Level.SelectedIndex = 1;
-            ComboBox_Unit.SelectedIndex = 2;
+            ComboBox_Level.SelectedIndex = 0;
+            ComboBox_Unit.SelectedIndex = 0;
 
-            loadVocabularies("2.3");
+            loadVocabularies("21");
         }
 
         public void loadVocabularies(string unit)
@@ -147,14 +147,25 @@ namespace YuuJin.Views
             if (level == "6")
             {
                 unit = "0";
-                Add_TextBox_Description.Text = "You are adding a new favorite vocabulary to Free.";
+                Add_TextBlock_Free.Visibility = Visibility.Visible;
+                Add_TextBlock_Level.Visibility = Visibility.Collapsed;
+                Add_TextBlock_LevelValue.Visibility = Visibility.Collapsed;
+                Add_TextBlock_Unit.Visibility = Visibility.Collapsed;
+                Add_TextBlock_UnitValue.Visibility = Visibility.Collapsed;
             }
             else
             {
                 if (((ComboBoxItem)ComboBox_Unit.SelectedItem) != null)
                 {
                     unit = ((ComboBoxItem)ComboBox_Unit.SelectedItem).Content.ToString();
-                    Add_TextBox_Description.Text = $"You are adding a new favorite vocabulary to level {level}, unit {unit}.";
+                    Add_TextBlock_LevelValue.Text = level;
+                    Add_TextBlock_UnitValue.Text = unit;
+
+                    Add_TextBlock_Free.Visibility = Visibility.Collapsed;
+                    Add_TextBlock_Level.Visibility = Visibility.Visible;
+                    Add_TextBlock_LevelValue.Visibility = Visibility.Visible;
+                    Add_TextBlock_Unit.Visibility = Visibility.Visible;
+                    Add_TextBlock_UnitValue.Visibility = Visibility.Visible;
                 }
             }
 

@@ -274,7 +274,7 @@
     <value>Level</value>
   </data>
   <data name="Vocabulary_MarkFavorite.Label" xml:space="preserve">
-    <value>Mark As Favoriteddd</value>
+    <value>Mark As Favorite</value>
   </data>
   <data name="Vocabulary_Print.Label" xml:space="preserve">
     <value>Print</value>
@@ -308,5 +308,68 @@
   </data>
   <data name="Vocabulary_Search.ToolTipService.ToolTip" xml:space="preserve">
     <value>Searchable Fields: Vocabulary and Meaning</value>
+  </data>
+  <data name="Add_TextBlock_Level.Text" xml:space="preserve">
+    <value>Level</value>
+  </data>
+  <data name="Add_TextBlock_Unit.Text" xml:space="preserve">
+    <value>, Unit</value>
+  </data>
+  <data name="Add_TextBox_Description.Text" xml:space="preserve">
+    <value>You are adding Vocabulary to</value>
+  </data>
+  <data name="ContentDialog_Add_MarkFavorite.Content" xml:space="preserve">
+    <value>Mark as favorite</value>
+  </data>
+  <data name="Delete_Warning_Text1.Text" xml:space="preserve">
+    <value>The selected data will be deleted forever!</value>
+  </data>
+  <data name="Delete_Warning_Text2.Text" xml:space="preserve">
+    <value>The data associated with it also be deleted. You cannot get it back.</value>
+  </data>
+  <data name="Error_Noti_Body.Text" xml:space="preserve">
+    <value>The operation was unsuccessful.</value>
+  </data>
+  <data name="Error_Noti_Title.Text" xml:space="preserve">
+    <value>Error!</value>
+  </data>
+  <data name="Info_Noti_Body.Text" xml:space="preserve">
+    <value>Select the table row first.</value>
+  </data>
+  <data name="Info_Noti_Title.Text" xml:space="preserve">
+    <value>Information</value>
+  </data>
+  <data name="Success_Noti_Body.Text" xml:space="preserve">
+    <value>The operation was successful.</value>
+  </data>
+  <data name="Success_Noti_Title.Text" xml:space="preserve">
+    <value>Success!</value>
+  </data>
+  <data name="Vocabulary_AddDialog_Title.CloseButtonText" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="Vocabulary_AddDialog_Title.PrimaryButtonText" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="Vocabulary_AddDialog_Title.Title" xml:space="preserve">
+    <value>Create Vocabulary</value>
+  </data>
+  <data name="Vocabulary_DeleteDialog.CloseButtonText" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="Vocabulary_DeleteDialog.PrimaryButtonText" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="Vocabulary_DeleteDialog.Title" xml:space="preserve">
+    <value>Are you sure to delete?</value>
+  </data>
+  <data name="Vocabulary_EditDialog_Title.CloseButtonText" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="Vocabulary_EditDialog_Title.PrimaryButtonText" xml:space="preserve">
+    <value>Update</value>
+  </data>
+  <data name="Vocabulary_EditDialog_Title.Title" xml:space="preserve">
+    <value>Update Vocabulary</value>
   </data>
 </root>

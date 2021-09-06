@@ -144,7 +144,7 @@
                 CanUserResizeColumns="True"
                 CanUserSortColumns="True"
                 FrozenColumnCount="2"
-                GridLinesVisibility="Horizontal"
+                GridLinesVisibility="All"
                 HeadersVisibility="Column"
                 IsReadOnly="True"
                 MaxColumnWidth="400"
@@ -159,7 +159,8 @@
                         x:Name="Col_Name"
                         x:Uid="Vocabulary_TableName"
                         Width="Auto"
-                        Binding="{Binding name}" />
+                        Binding="{Binding name}"
+                        FontSize="20" />
                     <controls:DataGridTextColumn
                         x:Name="Col_Kanji"
                         x:Uid="Vocabulary_TableKanji"

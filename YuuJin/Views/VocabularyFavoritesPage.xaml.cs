@@ -3,18 +3,9 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
+using System.Diagnostics;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
 using YuuJin.Database;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
@@ -189,8 +180,6 @@ namespace YuuJin.Views
 
                         // refresh the datagrid
                         loadVocabularies($"{level}{unit}");
-
-                        // TODO: select the added row programmatically using vocabularyId
                     }
                     else
                     {
@@ -248,6 +237,9 @@ namespace YuuJin.Views
                         }
 
                         // TODO: select the updated row programmatically using vocabularyId
+                        DataGrid_Vocabulary.SelectedIndex = selectedRow.displayNo - 1;
+                        DataGrid_Vocabulary.UpdateLayout();
+                        DataGrid_Vocabulary.ScrollIntoView(DataGrid_Vocabulary.SelectedItem, null);
                     }
                     else
                     {

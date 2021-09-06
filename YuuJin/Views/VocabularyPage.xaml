@@ -20,7 +20,7 @@
                 x:DefaultBindMode="TwoWay"
                 FontFamily="Segoe MDL2 Assets"
                 FontSize="15"
-                Foreground="black"
+                Foreground="Red"
                 Text="&#xe735;"
                 Visibility="{Binding FavoriteIconVisibility}" />
         </DataTemplate>
@@ -171,10 +171,9 @@
                         CanUserResizeColumns="True"
                         CanUserSortColumns="True"
                         FrozenColumnCount="2"
-                        GridLinesVisibility="Horizontal"
+                        GridLinesVisibility="All"
                         HeadersVisibility="Column"
                         IsReadOnly="True"
-                        MaxColumnWidth="400"
                         MinColumnWidth="70"
                         SelectionChanged="SelectionChanged_DataGrid">
                         <controls:DataGrid.Columns>
@@ -185,7 +184,8 @@
                             <controls:DataGridTextColumn
                                 x:Uid="Vocabulary_TableName"
                                 Width="Auto"
-                                Binding="{Binding name}" />
+                                Binding="{Binding name}"
+                                FontSize="20" />
                             <controls:DataGridTextColumn
                                 x:Uid="Vocabulary_TableKanji"
                                 Width="Auto"

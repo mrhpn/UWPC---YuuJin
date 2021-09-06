@@ -3,9 +3,6 @@ using Microsoft.Data.Sqlite;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Windows.Storage;
 using YuuJin.Models;
 
@@ -38,6 +35,25 @@ namespace YuuJin.Database
             }
 
             return entries;
+        }
+
+        public int GetFavoriteVocabulariesCount(string checkUnit)
+        {
+            int count = 0;
+
+            string dbpath = Path.Combine(ApplicationData.Current.LocalFolder.Path, "yuuJin.db");
+            using (SqliteConnection db = new SqliteConnection($"Filename={dbpath}"))
+            {
+                db.Open();
+
+                SqliteCommand selectCommand = new SqliteCommand($"SELECT COUNT(*) FROM vocabularies WHERE unit_id = {checkUnit} AND is_favorite = true", db);
+
+                count = Convert.ToInt32(selectCommand.ExecuteScalar());
+
+                db.Close();
+            }
+
+            return count;
         }
 
         public List<Vocabulary> GetFavoriteVocabularies(string unit)
@@ -215,7 +231,7 @@ namespace YuuJin.Database
             {
                 db.Open();
 
-                SqliteCommand selectCommand = new SqliteCommand($"SELECT * FROM vocabularies WHERE unit_id BETWEEN {unitFrom} AND {unitTo} AND is_favorite = {favoriteStatus}", db);
+                SqliteCommand selectCommand = new SqliteCommand($"SELECT * FROM vocabularies WHERE unit_id BETWEEN {unitFrom} AND {unitTo} AND is_favorite = {favoriteStatus} ORDER BY RANDOM()", db);
 
                 SqliteDataReader query = selectCommand.ExecuteReader();
 

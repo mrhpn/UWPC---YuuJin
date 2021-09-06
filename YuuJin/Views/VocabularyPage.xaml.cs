@@ -1,15 +1,11 @@
-﻿using DataAccessLibrary;
-using DataAccessLibrary.Models;
+﻿using DataAccessLibrary.Models;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.Diagnostics;
 using System.Runtime.CompilerServices;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Navigation;
 using YuuJin.Database;
 
 namespace YuuJin.Views
@@ -29,8 +25,10 @@ namespace YuuJin.Views
         public void loadVocabularies(string unit)
         {
             List<Vocabulary> vocabularies = getVocabularies(unit);
+            int favoriteVocaCount = new VocabularyModel().GetFavoriteVocabulariesCount(unit);
+
             DataGrid_Vocabulary.ItemsSource = vocabularies;
-            TextBlock_TotalRows.Text = vocabularies.Count.ToString();
+            TextBlock_TotalRows.Text = favoriteVocaCount.ToString() + " / " +vocabularies.Count.ToString();
         }
 
         public List<Vocabulary> getVocabularies(string unit)
@@ -190,6 +188,9 @@ namespace YuuJin.Views
                     }
 
                     // TODO: select the updated row programmatically using vocabularyId
+                    DataGrid_Vocabulary.SelectedIndex = selectedRow.displayNo - 1;
+                    DataGrid_Vocabulary.UpdateLayout();
+                    DataGrid_Vocabulary.ScrollIntoView(DataGrid_Vocabulary.SelectedItem, null);
                 }
                 else
                 {
@@ -254,7 +255,10 @@ namespace YuuJin.Views
                         // refresh the datagrid
                         loadVocabularies($"{level}{unit}");
 
-                        // TODO: select the added row programmatically using vocabularyId
+                        // TODO: select the updated row programmatically using vocabularyId
+                        DataGrid_Vocabulary.SelectedIndex = newVocabulary.displayNo - 1;
+                        DataGrid_Vocabulary.UpdateLayout();
+                        DataGrid_Vocabulary.ScrollIntoView(DataGrid_Vocabulary.SelectedItem, null);
                     }
                     else
                     {
@@ -312,6 +316,9 @@ namespace YuuJin.Views
                         }
 
                         // TODO: select the updated row programmatically using vocabularyId
+                        DataGrid_Vocabulary.SelectedIndex = selectedRow.displayNo - 1;
+                        DataGrid_Vocabulary.UpdateLayout();
+                        DataGrid_Vocabulary.ScrollIntoView(DataGrid_Vocabulary.SelectedItem, null);
                     }
                     else
                     {

@@ -137,7 +137,7 @@
             <controls:DataGrid
                 x:Name="DataGrid_Vocabulary"
                 Grid.Row="1"
-                MaxHeight="430"
+                MaxHeight="405"
                 Margin="0,20,0,0"
                 AutoGenerateColumns="False"
                 CanUserReorderColumns="True"
@@ -147,8 +147,8 @@
                 GridLinesVisibility="All"
                 HeadersVisibility="Column"
                 IsReadOnly="True"
-                MaxColumnWidth="400"
                 MinColumnWidth="70"
+                RowHeight="61"
                 SelectionChanged="SelectionChanged_DataGrid">
                 <controls:DataGrid.Columns>
                     <controls:DataGridTextColumn
@@ -160,53 +160,72 @@
                         x:Uid="Vocabulary_TableName"
                         Width="Auto"
                         Binding="{Binding name}"
-                        FontSize="20" />
+                        FontSize="30" />
                     <controls:DataGridTextColumn
                         x:Name="Col_Kanji"
                         x:Uid="Vocabulary_TableKanji"
                         Width="Auto"
-                        Binding="{Binding kanji}" />
+                        Binding="{Binding kanji}"
+                        FontSize="30" />
                     <controls:DataGridTextColumn
                         x:Name="Col_Meaning"
                         x:Uid="Vocabulary_TableMeaning"
                         Width="Auto"
-                        Binding="{Binding meaning}" />
+                        Binding="{Binding meaning}"
+                        FontSize="20" />
                     <controls:DataGridTextColumn
                         x:Name="Col_MeaningEn"
                         x:Uid="Vocabulary_TableMeaningEn"
                         Width="Auto"
-                        Binding="{Binding meaningEn}" />
+                        Binding="{Binding meaningEn}"
+                        FontSize="20" />
                     <controls:DataGridTextColumn Binding="{Binding vocabularyId}" Visibility="Collapsed" />
                 </controls:DataGrid.Columns>
             </controls:DataGrid>
             <!--  End data grid  -->
 
-            <StackPanel
-                x:Name="Panel_AnswerBox"
-                Margin="0,20,0,0"
-                Padding="20,5,5,5"
-                Orientation="Horizontal"
-                Visibility="Collapsed">
-                <TextBlock
-                    x:Name="TextBlock_Vocabulary"
-                    Margin="0,0,10,0"
-                    VerticalAlignment="Center" />
-                <AppBarSeparator />
-                <TextBlock
-                    x:Name="TextBlock_Kanji"
-                    Margin="0,0,10,0"
-                    VerticalAlignment="Center" />
-                <AppBarSeparator />
-                <TextBlock
-                    x:Name="TextBlock_Meaning"
-                    Margin="0,0,10,0"
-                    VerticalAlignment="Center" />
-                <AppBarSeparator />
-                <TextBlock
-                    x:Name="TextBlock_MeaningEn"
-                    Margin="0,0,10,0"
-                    VerticalAlignment="Center" />
-            </StackPanel>
+            <ScrollViewer Margin="0,50,0,20" HorizontalScrollBarVisibility="Auto">
+                <Grid
+                    x:Name="Panel_AnswerBox"
+                    Padding="20,5,5,5"
+                    Visibility="Collapsed">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock
+                        x:Name="TextBlock_Vocabulary"
+                        Grid.Column="0"
+                        Margin="0,0,10,0"
+                        VerticalAlignment="Center"
+                        FontSize="30" />
+                    <AppBarSeparator Grid.Column="1" />
+                    <TextBlock
+                        x:Name="TextBlock_Kanji"
+                        Grid.Column="2"
+                        Margin="0,0,10,0"
+                        VerticalAlignment="Center"
+                        FontSize="20" />
+                    <AppBarSeparator Grid.Column="3" />
+                    <TextBlock
+                        x:Name="TextBlock_Meaning"
+                        Grid.Column="4"
+                        Margin="0,0,10,0"
+                        VerticalAlignment="Center"
+                        FontSize="30" />
+                    <AppBarSeparator Grid.Column="5" />
+                    <TextBlock
+                        x:Name="TextBlock_MeaningEn"
+                        Grid.Column="6"
+                        Margin="0,0,10,0"
+                        VerticalAlignment="Center" />
+                </Grid>
+            </ScrollViewer>
         </StackPanel>
 
         <VisualStateManager.VisualStateGroups>
@@ -278,4 +297,5 @@
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
     </Grid>
+
 </Page>

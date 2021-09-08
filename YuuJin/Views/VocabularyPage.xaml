@@ -164,49 +164,45 @@
                     <controls:DataGrid
                         x:Name="DataGrid_Vocabulary"
                         Grid.Row="1"
-                        MaxHeight="500"
+                        MaxHeight="491"
                         Margin="0,20,0,0"
                         AutoGenerateColumns="False"
                         CanUserReorderColumns="True"
                         CanUserResizeColumns="True"
                         CanUserSortColumns="True"
-                        FrozenColumnCount="2"
+                        FrozenColumnCount="5"
                         GridLinesVisibility="All"
                         HeadersVisibility="Column"
                         IsReadOnly="True"
                         MinColumnWidth="70"
+                        RowHeight="50"
                         SelectionChanged="SelectionChanged_DataGrid">
                         <controls:DataGrid.Columns>
-                            <controls:DataGridTextColumn
+                            <controls:DataGridTextColumn Binding="{Binding displayNo}" Header="#" />
+                            <controls:DataGridTemplateColumn
+                                x:Uid="Vocabulary_TableFavorite"
                                 Width="Auto"
-                                Binding="{Binding displayNo}"
-                                Header="#" />
+                                CellTemplate="{StaticResource FavoriteTemplate}" />
+                            <controls:DataGridTextColumn Binding="{Binding isFavorite}" Visibility="Collapsed" />
                             <controls:DataGridTextColumn
                                 x:Uid="Vocabulary_TableName"
                                 Width="Auto"
                                 Binding="{Binding name}"
-                                FontSize="20" />
+                                FontSize="25" />
                             <controls:DataGridTextColumn
                                 x:Uid="Vocabulary_TableKanji"
                                 Width="Auto"
-                                Binding="{Binding kanji}" />
+                                Binding="{Binding kanji}"
+                                FontSize="25" />
                             <controls:DataGridTextColumn
                                 x:Uid="Vocabulary_TableMeaning"
                                 Width="Auto"
                                 Binding="{Binding meaning}" />
                             <controls:DataGridTextColumn
                                 x:Uid="Vocabulary_TableMeaningEn"
-                                Width="SizeToHeader"
+                                Width="Auto"
                                 Binding="{Binding meaningEn}" />
-                            <controls:DataGridTemplateColumn
-                                x:Uid="Vocabulary_TableFavorite"
-                                Width="SizeToHeader"
-                                CellTemplate="{StaticResource FavoriteTemplate}" />
-                            <controls:DataGridTextColumn Binding="{Binding isFavorite}" Visibility="Collapsed" />
-                            <controls:DataGridTextColumn
-                                Width="SizeToHeader"
-                                Binding="{Binding vocabularyId}"
-                                Visibility="Collapsed" />
+                            <controls:DataGridTextColumn Binding="{Binding vocabularyId}" Visibility="Collapsed" />
                         </controls:DataGrid.Columns>
                     </controls:DataGrid>
                 </Grid>

@@ -378,4 +378,7 @@
   <data name="Language.Text" xml:space="preserve">
     <value>Language</value>
   </data>
+  <data name="Shell_Grammar.Content" xml:space="preserve">
+    <value>Grammar</value>
+  </data>
 </root>

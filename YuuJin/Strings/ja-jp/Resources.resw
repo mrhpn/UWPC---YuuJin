@@ -379,4 +379,7 @@
   <data name="Language.Text" xml:space="preserve">
     <value>言語</value>
   </data>
+  <data name="Shell_Grammar.Content" xml:space="preserve">
+    <value>文法</value>
+  </data>
 </root>

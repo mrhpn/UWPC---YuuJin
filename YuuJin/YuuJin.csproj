@@ -176,6 +176,12 @@
     <Compile Include="Activation\DefaultActivationHandler.cs" />
     <Compile Include="Services\NavigationService.cs" />
     <Compile Include="Services\ThemeSelectorService.cs" />
+    <Compile Include="Views\GrammarN4Page.xaml.cs">
+      <DependentUpon>GrammarN4Page.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\GrammarN5Page.xaml.cs">
+      <DependentUpon>GrammarN5Page.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\KanjiPage.xaml.cs">
       <DependentUpon>KanjiPage.xaml</DependentUpon>
     </Compile>
@@ -222,6 +228,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Styles\TextBlock.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\GrammarN4Page.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\GrammarN5Page.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -309,6 +323,31 @@
     <Content Include="Assets\Wide310x150Logo.scale-125.png" />
     <Content Include="Assets\Wide310x150Logo.scale-150.png" />
     <Content Include="Assets\Wide310x150Logo.scale-400.png" />
+    <Content Include="Data\Grammar\N4\26.png" />
+    <Content Include="Data\Grammar\N4\27.png" />
+    <Content Include="Data\Grammar\N4\28.png" />
+    <Content Include="Data\Grammar\N4\29.png" />
+    <Content Include="Data\Grammar\N4\30.png" />
+    <Content Include="Data\Grammar\N4\31.png" />
+    <Content Include="Data\Grammar\N4\32.png" />
+    <Content Include="Data\Grammar\N4\33.png" />
+    <Content Include="Data\Grammar\N4\34.png" />
+    <Content Include="Data\Grammar\N4\35.png" />
+    <Content Include="Data\Grammar\N4\36.png" />
+    <Content Include="Data\Grammar\N4\37.png" />
+    <Content Include="Data\Grammar\N4\38.png" />
+    <Content Include="Data\Grammar\N4\39.png" />
+    <Content Include="Data\Grammar\N4\40.png" />
+    <Content Include="Data\Grammar\N4\41.png" />
+    <Content Include="Data\Grammar\N4\42.png" />
+    <Content Include="Data\Grammar\N4\43.png" />
+    <Content Include="Data\Grammar\N4\44.png" />
+    <Content Include="Data\Grammar\N4\45.png" />
+    <Content Include="Data\Grammar\N4\46.png" />
+    <Content Include="Data\Grammar\N4\47.png" />
+    <Content Include="Data\Grammar\N4\48.png" />
+    <Content Include="Data\Grammar\N4\49.png" />
+    <Content Include="Data\Grammar\N4\50.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
@@ -337,6 +376,7 @@
       <Name>YuuJin.Core</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

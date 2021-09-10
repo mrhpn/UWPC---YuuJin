@@ -10,7 +10,7 @@
   <Identity
     Name="A3978DFB-3D7B-4611-BC32-5D80E7D09751"
     Publisher="CN=Htet Phyo Naing"
-    Version="1.0.6.0" />
+    Version="1.0.18.0" />
 
   <mp:PhoneIdentity PhoneProductId="A3978DFB-3D7B-4611-BC32-5D80E7D09751" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 

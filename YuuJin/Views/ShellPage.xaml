@@ -67,6 +67,21 @@
                 x:Uid="Shell_Kanji"
                 helpers:NavHelper.NavigateTo="views:KanjiPage"
                 Icon="Character" />
+            <winui:NavigationViewItem
+                x:Uid="Shell_Grammar"
+                Content="Grammar"
+                Icon="Shop">
+                <winui:NavigationViewItem.MenuItems>
+                    <winui:NavigationViewItem
+                        helpers:NavHelper.NavigateTo="views:GrammarN4Page"
+                        Content="N4"
+                        Icon="Target" />
+                    <winui:NavigationViewItem
+                        helpers:NavHelper.NavigateTo="views:GrammarN5Page"
+                        Content="N5"
+                        Icon="Target" />
+                </winui:NavigationViewItem.MenuItems>
+            </winui:NavigationViewItem>
         </winui:NavigationView.MenuItems>
         <i:Interaction.Behaviors>
             <behaviors:NavigationViewHeaderBehavior DefaultHeader="{x:Bind Selected.Content, Mode=OneWay}">

@@ -1,0 +1,23 @@
+﻿<Page
+    x:Class="YuuJin.Views.GrammarN4Page"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="using:YuuJin.Views"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    mc:Ignorable="d">
+
+    <ScrollViewer>
+        <Grid x:Name="ContentArea" Margin="{StaticResource MediumLeftRightMargin}">
+            <controls:WrapPanel
+                Name="WrapPanel"
+                Grid.Row="1"
+                Margin="2"
+                HorizontalSpacing="10"
+                Orientation="Horizontal"
+                VerticalSpacing="10" />
+        </Grid>
+    </ScrollViewer>
+</Page>
